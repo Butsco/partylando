@@ -1,13 +1,29 @@
+var MeView = Backbone.View.extend({
+    initialize: function() {
+        _.bindAll(this, 'render');
+        this.template = _.template($('#me-template').html())
+    },
+
+    render: function() {
+        var html = this.template({
+            id: this.model.id
+        });
+
+        this.$el.html(html);
+        return this;
+    }
+});
+
 var ParticipantView = Backbone.View.extend({
     initialize: function() {
         _.bindAll(this, 'render');
         this.template = _.template($('#participant-template').html())
 
-        // this.topCarousel = new CarouselView({
-        //     model: participant
-        // }, {
-        //     part: 'top'
-        // }).render();
+        this.topCarousel = new CarouselView({
+            model: participant
+        }, {
+            part: 'top'
+        }).render();
     },
 
     render: function() {

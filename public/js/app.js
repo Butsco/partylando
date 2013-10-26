@@ -54,6 +54,20 @@ var App = Backbone.Model.extend({
         socket.on('connect', function () {
             console.log("subscribe", that.subscription);
             socket.emit('subscribe', that.subscription);
+
+            that.me = new Participant({
+                id: that.subscription.id,
+                clothing: {
+                    top: 0,
+                    bottom: 0,
+                    shoes: 0
+                }
+            });
+
+            new MeView({
+                model: that.me,
+                el: document.getElementById('participant-0')
+            }).render();
         });
 
         socket.on('room_content', function (data) {
