@@ -40,6 +40,7 @@ io.on('connection',function(socket){
   		}
   	}
   	rooms[data.room].participants[data.id] = participant;
+    socket.join(data.room);
   });
 
   socket.on("clothing_change",function(data){
