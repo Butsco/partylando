@@ -23,6 +23,9 @@ var change_clothes = function(data){
   	rooms[data.room].participants[data.id].clothing = clothing;
   	io.sockets.in(data.room).emit("peer_clothing_changed", data);
 }
+var person_joined  = function(data){
+    io.sockets.in(data.room).emit("person_joined", data);
+}
 io.on('connection',function(socket){
   socket.on("subscribe",function(data){
   	var participant = {
@@ -41,6 +44,10 @@ io.on('connection',function(socket){
   	}
   	rooms[data.room].participants[data.id] = participant;
     socket.join(data.room);
+    person_joined({
+        room : data.room,
+        person : participant
+    });
   });
 
   socket.on("clothing_change",function(data){
