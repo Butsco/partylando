@@ -10,10 +10,12 @@
 	/search/<domain-url>/<category-url-key>/<brand-url-key>
 */
 var restler = require('restler');
+var request = require('request');
 var url = "http://disrupt-hackathon.zalando.net";
 //var domain = "www.zalando.de";
 var domain = "www.zalando.co.uk";
 var options = {headers: {'Accept': 'application/json'}};
+var cache = {};
 
 function domains(){
 	/*
@@ -45,72 +47,125 @@ function domains(){
   */
 
 var top_filter = function(row){
-	var categories = ['womens-clothing-tops', 'womens-clothing-blouses-tunics'];
+	var arr = ['womens-clothing-tops', 'womens-clothing-blouses-tunics'];
 	// 'womens-clothing-jumpers-cardigans'
-	return categories.indexOf(row['parentUrlKey']) > -1;
+	return arr.indexOf(row['parentUrlKey']) > -1;
 };
 
 var bottom_filter = function(row){
-	var categories = ['womens-clothing-skirts', 'womens-clothing-jeans', 'womens-clothing-trousers-leggings'];
-	return categories.indexOf(row['parentUrlKey']) > -1;
+	var arr = ['womens-clothing-skirts', 'womens-clothing-jeans', 'womens-clothing-trousers-leggings'];
+	return arr.indexOf(row['parentUrlKey']) > -1;
 };
 
 var shoes_filter = function(row){
 	return row['parentUrlKey'] === 'womens-shoes';
 };
 
-function categories(filter, onresult){
-	restler.get(url + '/categories/' + domain, options).on('complete', function(data, response){
+function categories(filter, key, callback){
+	if(key in cache){
+		console.log(" - Cache hit for " + key);
+		callback(cache[key]);	
+		return;
+	}
+
+	restler.get(url + '/categories/' + domain, options).on('complete', function(data){
 		// filter for specific categories
 		var filtered = data.data.filter(filter);
-		//onresults callback
-		onresult(filtered);
+		cache[key] = filtered;
+		callback(filtered);
 	});
-}
-
-function shoes(){
-	//http://disrupt-hackathon.zalando.net/search/www.zalando.co.uk/shoes
-	restler.get(url + '/search/' + domain + '/shoes', options).on('complete', function(data, response){
-		console.log(data['searchResults']);
-	});
-
 	/*
-	<article>
-		<brandCode>GU1</brandCode>
-		<color>black</color>
-		<colorFamily>Black</colorFamily>
-		<imageUrl>
-		http://i2.ztat.net/detail/GU/11/1C/03/M8/02/GU111C03M-802@1.2.jpg
-		</imageUrl>
-		<kids>false</kids>
-		<name>JARITA - Ankle boots - black</name>
-		<newArticle>true</newArticle>
-		<otherColors>
-		<count>1</count>
-		<value>GU111C03M-304</value>
-		</otherColors>
-		<oversize>false</oversize>
-		<price>175.0</price>
-		<priceOriginal>175.0</priceOriginal>
-		<sale>false</sale>
-		<sku>GU111C03M-802</sku>
-		<urlKey>guess-jarita-ankle-boots-black-gu111c03m-802</urlKey>
-	</article>
+	 { urlKey: 'womens-clothing-a-line-skirts',
+    parentUrlKey: 'womens-clothing-skirts',
+    depth: 6,
+    name: 'A-Line Skirts' },
 	*/
 }
 
-/*
+function fetch_articles(category, callback){
+	if(category in cache){
+		console.log(" - Cache hit for " + category);
+		callback(cache[category]);
+		return;
+	}
 
+	// i don't know why, but i couldn't get it working with restler :(. But its a hackathon
+	var fullurl = url + '/search/' + domain + '/' + category;
+	//console.log(fullurl);
+	request(fullurl, {headers: {'Accept': 'application/json'}}, function(e,r,b){
+		console.log(" - fetched " + category);
+		try{
+			var json =JSON.parse(b)['searchResults'];
+			cache[category] = json['data'];
+			callback(json['data']);
+		}catch(err){
+			console.log(err);
+			console.log(b);
+			console.log(fullurl);
+		}
+	});
+
+	/*
+  { sku: 'WI321J021-302',
+    name: 'Tracksuit bottoms - red',
+    urlKey: 'wildfox-tracksuit-bottoms-red-wi321j021-302',
+    brandCode: 'WI3',
+    price: 95,
+    priceOriginal: 95,
+    imageUrl: 'http://i1.ztat.net/detail/WI/32/1J/02/13/02/WI321J021-302@1.1.jpg',
+    newArticle: false,
+    sale: false,
+    kids: false,
+    oversize: false,
+    color: 'red',
+    colorFamily: 'Red',
+    otherColors: { data: [], count: 0 } },
+	*/
+}
+
+
+
+function init_cache(){
+	var cacher = function(data){
+		for(var i=0;i<data.length;i++){
+			var key = data[i]['urlKey'];
+			fetch_articles(data[i]['urlKey'], function(d){});
+		}
+	};
+
+	categories(top_filter, 'filter-top', cacher);
+	categories(bottom_filter, 'filter-bottom', cacher);
+	categories(shoes_filter, 'filter-shoes', cacher);
+
+	/*
+	setTimeout(function(){
+		fetch_articles('womens-clothing-tops-tops', function(d){console.log("Banaan")});
+		categories(top_filter, 'filter-top', cacher);
+	}, 10000);
 */
+}
 
-//domains();
 
+/*
+var zalando = require('./zalando')
 // Get all categories for womens shoes
 var callback = function(data){console.log(data);};
 // Top
-//categories(top_filter, callback);
+//categories(top_filter, _callback);
 // Bottom
-categories(bottom_filter, callback);
+zalando.categories(zalando.bottom_filter, callback);
 // Shoes
-//categories(shoes_filter, callback);
+//categories(shoes_filter, _callback);
+zalando.fetch_articles('womens-clothing-joggers-sweats', callback);
+
+*/
+
+exports.top_filter = top_filter 
+exports.bottom_filter = bottom_filter
+exports.shoes_filter = shoes_filter
+exports.categories = categories
+exports.fetch_articles = fetch_articles
+exports.init_cache = init_cache
+
+
 
