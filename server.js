@@ -37,7 +37,10 @@ io.on('connection',function(socket){
   		clothing : {
   			top : {},
   			bottom : {},
-  			shoes : {}
+  			shoes : {},
+        top_cat: {},
+        bottom_cat: {},
+        shoes_cat: {}
   		},
         likedBy : []
   	};

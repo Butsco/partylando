@@ -28,7 +28,10 @@ var Participant = Backbone.Model.extend({
     defaults: {
         clothing_top: 0,
         clothing_bottom: 0,
-        clothing_shoes: 0
+        clothing_shoes: 0,
+        clothing_top_cat: 0,
+        clothing_bottom_cat: 0,
+        clothing_shoes_cat: 0
     },
 
     initialize: function() {
