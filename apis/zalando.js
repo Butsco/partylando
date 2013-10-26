@@ -11,6 +11,8 @@
 */
 var restler = require('restler');
 var request = require('request');
+var fs = require('fs');
+
 var url = "http://disrupt-hackathon.zalando.net";
 //var domain = "www.zalando.de";
 var domain = "www.zalando.co.uk";
@@ -137,13 +139,43 @@ function init_cache(){
 	categories(bottom_filter, 'filter-bottom', cacher);
 	categories(shoes_filter, 'filter-shoes', cacher);
 
-	/*
 	setTimeout(function(){
 		fetch_articles('womens-clothing-tops-tops', function(d){console.log("Banaan")});
 		categories(top_filter, 'filter-top', cacher);
 	}, 10000);
-*/
+
+	// dump after 2 minutes
+	setTimeout(write_cache, 120000);
 }
+
+function write_cache(){
+	console.log("Dump to cache");
+	var outfile = "./cached.json";
+	fs.writeFile(outfile, JSON.stringify(cache, null, 4), function(err){
+		if(err){
+			console.log("Ups " + err);
+		}
+	});
+}
+
+/*
+var fs = require('fs');
+
+var myData = {
+  name:'test',
+  version:'1.0'
+}
+
+var outputFilename = '/tmp/my.json';
+
+fs.writeFile(outputFilename, JSON.stringify(myData, null, 4), function(err) {
+    if(err) {
+      console.log(err);
+    } else {
+      console.log("JSON saved to ");
+    }
+}); 
+*/
 
 
 /*
