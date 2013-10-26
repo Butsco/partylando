@@ -56,10 +56,14 @@ io.on('connection',function(socket){
 
 });
 
-app.get("/api/room",function(req,res){
-	var room = req.body.room;
+app.get("/api/rooms",function(req,res){
+    res.json(rooms);
+});
+app.get("/api/rooms/:room",function(req,res){
+	var room = req.params.room;
 	res.json(rooms[room]);
-})
+});
+
 app.post("/api/clothing/change",function(req,res){
 	var data = req.body;
 	change_clothes(data);
