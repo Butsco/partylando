@@ -53,6 +53,7 @@ io.on('connection',function(socket){
         room : data.room,
         person : participant
     });
+    socket.emit("room_content",rooms[data.room]);
   });
 
   socket.on("clothing_change",function(data){
