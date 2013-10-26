@@ -50,7 +50,10 @@ var Participant = Backbone.Model.extend({
             clothing: {
                 top: this.get('clothing_top'),
                 bottom: this.get('clothing_bottom'),
-                shoes: this.get('clothing_shoes')
+                shoes: this.get('clothing_shoes'),
+                top_cat: this.get('clothing_top_cat'),
+                bottom_cat: this.get('clothing_bottom_cat'),
+                shoes_cat: this.get('clothing_shoes_cat')
             }
         });
     }
@@ -135,7 +138,10 @@ var App = Backbone.Model.extend({
             participant.set({
                 'clothing_top': data.clothing.top,
                 'clothing_bottom': data.clothing.bottom,
-                'clothing_shoes': data.clothing.shoes
+                'clothing_shoes': data.clothing.shoes,
+                'clothing_top_cat': data.clothing.top_cat,
+                'clothing_bottom_cat': data.clothing.bottom_cat,
+                'clothing_shoes_cat': data.clothing.shoes_cat
             });
         }
     }

@@ -1,109 +1,19 @@
-<h1>Me</h1>
+<h2>Me <%= id %></h2>
 
-<div class="carousel carousel-top">
+<% 
+    var places = ['top','bottom','shoes'];
+    for (var i=0; i<places.length; i++) {
+        var place = places[i];
+%>
+<div class="carousel carousel-<%= place %>">
+    <% for (var cat=0; cat<3; cat++) {%>
     <div class="train">
+        <% for (var choice=0; choice<3; choice++) {%>
         <div class="carriage">
             <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/G1/02/1PI12A00G-102@1.1.jpg" />
         </div>
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/G1/51/1PI12A00G-151@1.1.jpg" />
-        </div>
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/L8/58/1PI12A00L-858@1.1.jpg" />
-        </div>
+        <% } %>
     </div>
-    <div class="train">
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/G1/02/1PI12A00G-102@1.1.jpg" />
-        </div>
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/G1/51/1PI12A00G-151@1.1.jpg" />
-        </div>
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/L8/58/1PI12A00L-858@1.1.jpg" />
-        </div>
-    </div>
-    <div class="train">
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/G1/02/1PI12A00G-102@1.1.jpg" />
-        </div>
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/G1/51/1PI12A00G-151@1.1.jpg" />
-        </div>
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/L8/58/1PI12A00L-858@1.1.jpg" />
-        </div>
-    </div>
+    <% } %>
 </div>
-
-<div class="carousel carousel-bottom">
-    <div class="train">
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/G1/02/1PI12A00G-102@1.1.jpg" />
-        </div>
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/G1/51/1PI12A00G-151@1.1.jpg" />
-        </div>
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/L8/58/1PI12A00L-858@1.1.jpg" />
-        </div>
-    </div>
-    <div class="train">
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/G1/02/1PI12A00G-102@1.1.jpg" />
-        </div>
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/G1/51/1PI12A00G-151@1.1.jpg" />
-        </div>
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/L8/58/1PI12A00L-858@1.1.jpg" />
-        </div>
-    </div>
-    <div class="train">
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/G1/02/1PI12A00G-102@1.1.jpg" />
-        </div>
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/G1/51/1PI12A00G-151@1.1.jpg" />
-        </div>
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/L8/58/1PI12A00L-858@1.1.jpg" />
-        </div>
-    </div>
-</div>
-
-<div class="carousel carousel-shoes">
-    <div class="train">
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/G1/02/1PI12A00G-102@1.1.jpg" />
-        </div>
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/G1/51/1PI12A00G-151@1.1.jpg" />
-        </div>
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/L8/58/1PI12A00L-858@1.1.jpg" />
-        </div>
-    </div>
-    <div class="train">
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/G1/02/1PI12A00G-102@1.1.jpg" />
-        </div>
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/G1/51/1PI12A00G-151@1.1.jpg" />
-        </div>
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/L8/58/1PI12A00L-858@1.1.jpg" />
-        </div>
-    </div>
-    <div class="train">
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/G1/02/1PI12A00G-102@1.1.jpg" />
-        </div>
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/G1/51/1PI12A00G-151@1.1.jpg" />
-        </div>
-        <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/L8/58/1PI12A00L-858@1.1.jpg" />
-        </div>
-    </div>
-</div>
+<% } %>
