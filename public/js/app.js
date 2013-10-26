@@ -41,17 +41,15 @@ var Participant = Backbone.Model.extend({
     },
 
     onChange: function() {
-        if (this.isMe()) {
-            app.socket.emit('clothing_change', {
-                room: app.subscription.room,
-                id: this.id,
-                clothing: {
-                    top: this.get('clothing_top'),
-                    bottom: this.get('clothing_bottom'),
-                    shoes: this.get('clothing_shoes')
-                }
-            });
-        }
+        app.socket.emit('clothing_change', {
+            room: app.subscription.room,
+            id: this.id,
+            clothing: {
+                top: this.get('clothing_top'),
+                bottom: this.get('clothing_bottom'),
+                shoes: this.get('clothing_shoes')
+            }
+        });
     }
 });
 
@@ -154,6 +152,20 @@ $(function(){
             }
         });
     });
+
+    $('#test').hammer({
+        drag: false,
+        transform: false,
+        swipe: true
+    }).on("swipeup", "", function(event) {
+        console.log(this, event);
+    });
+
+    new ScrollFix(document);
+    $("input, textarea, .dontscroll").on('touchmove', function(event){
+        event.preventDefault()
+    });
+    
 
     window.app = new App();
 });

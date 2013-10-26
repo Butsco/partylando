@@ -31,3 +31,8 @@ html, body {
 .carousel .train .carriage img.photo{
     width: 100%;
 }
+
+#test {
+    background-color: #FFCC00;
+    height: 100%;
+}
