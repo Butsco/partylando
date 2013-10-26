@@ -1,8 +1,10 @@
 var express = require("express");
-var io = require('socket.io').listen(server)
+var http = require("http");
 
 var app = express();
+var server = http.createServer(app)
 
+var io = require('socket.io').listen(server)
 
 io.on('connection',function(socket){
   socket.emit('init',{msg:"test"})
