@@ -29,6 +29,7 @@
     "socket.io" : "*",
     "express" : "*",
     "async"  : "*",
-    "restler": "*"
+    "restler": "*",
+    "request": "*"
   }
 }
