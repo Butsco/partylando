@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Partylando test</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/bootstrap-3.0.0.css">
+        <link rel="stylesheet" href="css/style.css">
+
+        <script src="js/vendor/jquery-1.10.2.min.js"></script>
+    </head>
+    <body>
+    	<h1>Events</h1>
+        <div id="events"></div>
+
+        <h1>Zalando Top</h1>
+        <div id="zalando"></div>
+
+        <script>
+        	function loadEvents(){
+        		$.getJSON('/api/events', function(data){
+        			var $events = $("#events");
+        			for(var i=0;i<data.length;i++){
+        				var item = data[i];
+        				var prefix = item["categories"][0]["icon"]["prefix"];
+
+        				//https://ss1.4sqi.net/img/categories_v2/arts_entertainment/musicvenue_88.png
+        				$events.append("<p style='background:#eee'>" + item["name"] + "<img src='" + prefix + "44.png'/></p>");
+        			}
+        		});	
+        	}
+
+        	function loadZalando(){
+        		$.getJSON('/api/zalando', function(data){
+        			var $zalando = $("#zalando");
+        			var top = data["filter-top"];
+        			for(var i=0;i<top.length;i++){
+        				var articles = data[top[i]["urlKey"]];
+        				for(var j=0;j<articles.length;j++){
+        					var item = articles[j];
+        					var html = "<p style='background:#eee'><img width='100' src='" + item['imageUrl'] + "'/>" + item["name"] + "<br/> price= " + item["price"] + "&euro;</p>";
+        					$zalando.append(html);
+        				}
+        			}
+        		});
+        	}
+
+        	/*
+        {
+            "sku": "MK111C00N-802",
+            "name": "KARLIE - Boots - black",
+            "urlKey": "michael-michael-kors-karlie-boots-black-mk111c00n-802",
+            "brandCode": "MK1",
+            "price": 190,
+            "priceOriginal": 190,
+            "imageUrl": "http://i1.ztat.net/detail/MK/11/1C/00/N8/02/MK111C00N-802@1.1.jpg",
+            "newArticle": false,
+            "sale": false,
+            "kids": false,
+            "oversize": false,
+            "color": "black",
+            "colorFamily": "Black",
+            "otherColors": {
+                "data": [],
+                "count": 0
+            }
+        },
+
+        	*/
+
+        	$(document).ready(function(){
+        		loadEvents();
+        		loadZalando();
+        	});
+
+        	
+        	/*
+    {
+        "id": "52491c638abfc78d8e733e0f",
+        "name": "Watergate Nacht",
+        "categories": [
+            {
+                "id": "4e0a4b91bd41eda0d6092f89",
+                "name": "Concert",
+                "pluralName": "Concerts",
+                "shortName": "Concert",
+                "icon": {
+                    "prefix": "https://ss1.4sqi.net/img/categories_v2/arts_entertainment/musicvenue_",
+                    "suffix": ".png"
+                },
+                "primary": true
+            }
+        ],
+        "hereNow": {
+            "count": 0,
+            "groups": [
+                {
+                    "type": "friends",
+                    "name": "Friends here",
+                    "count": 0,
+                    "items": []
+                },
+                {
+                    "type": "others",
+                    "name": "Other people here",
+                    "count": 0,
+                    "items": []
+                }
+            ]
+        },
+        "allDay": true,
+        "date": 1382756400,
+        "timeZone": "Europe/Berlin",
+        "stats": {
+            "checkinsCount": 5,
+            "usersCount": 5
+        },
+        "url": "http://www.songkick.com/concerts/18214299-watergate-nacht-at-watergate?utm_source=4436&utm_medium=partner"
+    },
+		*/
+        </script>
+    </body>
+</html>
