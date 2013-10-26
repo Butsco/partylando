@@ -57,7 +57,7 @@ var Participant = Backbone.Model.extend({
 
 var App = Backbone.Model.extend({
     initialize: function(){
-        _.bindAll(this, 'person_joined');
+        _.bindAll(this, 'person_joined', 'peer_clothing_changed');
         var that = this;
 
         this.subscription = {
@@ -98,6 +98,7 @@ var App = Backbone.Model.extend({
         });
 
         this.socket.on('person_joined', this.person_joined, this);
+        this.socket.on('peer_clothing_changed', this.peer_clothing_changed, this);
     },
 
     person_joined: function(data) {
@@ -124,6 +125,18 @@ var App = Backbone.Model.extend({
         })
 
         console.log('person_joined', participant.toJSON(), this.room.participants.length);
+    },
+
+    peer_clothing_changed: function(data) {
+        participant = this.room.participants.get(data.id);
+
+        if (participant) {
+            participant.set({
+                'clothing_top': data.clothing.top,
+                'clothing_bottom': data.clothing.bottom,
+                'clothing_shoes': data.clothing.shoes
+            });
+        }
     }
 });
 
