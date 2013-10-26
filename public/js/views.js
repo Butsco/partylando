@@ -14,9 +14,17 @@ var MeView = Backbone.View.extend({
         this.topCarousel = new MeCarouselView({
             model: this.model,
             el: this.$el.find('.carousel-top')
-        }, {
-            part: 'top'
-        }).render();
+        }, { part: 'top' }).render();
+
+        this.carouselCarousel = new MeCarouselView({
+            model: this.model,
+            el: this.$el.find('.carousel-bottom')
+        }, { part: 'bottom' }).render();
+
+        this.shoesCarousel = new MeCarouselView({
+            model: this.model,
+            el: this.$el.find('.carousel-shoes')
+        }, { part: 'shoes' }).render();
         
         return this;
     }
@@ -40,9 +48,17 @@ var ParticipantView = Backbone.View.extend({
         this.topCarousel = new CarouselView({
             model: this.model,
             el: this.$el.find('.carousel-top')
-        }, {
-            part: 'top'
-        }).render();
+        }, {part: 'top'}).render();
+
+        this.bottomCarousel = new CarouselView({
+            model: this.model,
+            el: this.$el.find('.carousel-bottom')
+        }, {part: 'bottom'}).render();
+
+        this.shoesCarousel = new CarouselView({
+            model: this.model,
+            el: this.$el.find('.carousel-shoes')
+        }, {part: 'shoes'}).render();
 
         return this;
     }
@@ -87,7 +103,7 @@ var MeCarouselView = Backbone.View.extend({
             drag: false,
             transform: false,
             swipe: true
-        }).on("swipeleft", ".train", function(event) {
+        }).on("swipeleft", ".carousel-"+this.part+" .train", function(event) {
             that.onSwipeLeft();
         });
 
@@ -95,7 +111,7 @@ var MeCarouselView = Backbone.View.extend({
             drag: false,
             transform: false,
             swipe: true
-        }).on("swiperight", ".train", function(event) {
+        }).on("swiperight", ".carousel-"+this.part+" .train", function(event) {
             that.onSwipeRight();
         });
     },
