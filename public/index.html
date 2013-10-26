@@ -11,13 +11,18 @@
 
         <link rel="stylesheet" href="css/bootstrap-3.0.0.css">
         <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
+
         <script src="js/vendor/jquery-1.10.2.min.js"></script>
         <script src="js/vendor/underscore-1.5.2.js"></script>
         <script src="js/vendor/backbone-1.1.0.js"></script>
         <script src="/socket.io/socket.io.js"></script>
         
+        <script type="text/template" src="templates/participant.html" id="participant-template"></script>
+
+        <script src="js/views.js"></script>
         <script src="js/app.js"></script>
+    </head>
+    <body>
+        <div id="participants" class="row"></div>
     </body>
 </html>

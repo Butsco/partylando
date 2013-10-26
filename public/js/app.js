@@ -11,7 +11,14 @@ var Room = Backbone.Model.extend({
 
 
 var ParticpantCollection = Backbone.Collection.extend({
-    model: Participant
+    model: Participant,
+    initialize: function() {
+        this.on('add', function(participant) {
+            view = new ParticipantView({
+                model: participant
+            }).render();
+        });
+    }
 });
 
 var Participant = Backbone.Model.extend({
@@ -68,5 +75,19 @@ var App = Backbone.Model.extend({
 });
 
 $(function(){
+
+    // fetch templates
+    $("script[type='text/template']").each(function(index,tag){
+        $.ajax({
+            url: $(tag).attr('src'),
+            method: 'GET',
+            async: false,
+            contentType: 'text',
+            success: function (data) {
+                $(tag).html(data)
+            }
+        });
+    });
+
     window.app = new App();
 });
