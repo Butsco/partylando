@@ -28,7 +28,7 @@ var like_clothes = function(data){
     io.sockets.in(data.room).emit("person_liked", data);
 }
 var person_joined  = function(data){
-    io.sockets.in(data.room).emit("person_joined", data);
+    io.sockets.in(data.room).emit("person_joined", data.person);
 }
 io.on('connection',function(socket){
   socket.on("subscribe",function(data){
