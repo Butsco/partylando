@@ -18,7 +18,9 @@ var ParticpantCollection = Backbone.Collection.extend({
                 model: participant
             }).render();
         });
-    }
+    },
+
+
 });
 
 var Participant = Backbone.Model.extend({
@@ -38,7 +40,7 @@ var App = Backbone.Model.extend({
         var that = this;
 
         this.subscription = {
-            id: 'bert',
+            id: document.location.hash ? document.location.hash.substring(1) : 'anonymous',
             room: 'butsco'
         };
 
@@ -58,18 +60,24 @@ var App = Backbone.Model.extend({
 
             if (!participant) {
                 participant = new Participant({id: id});
-                that.room.participants.add(participant);
+                if (!participant.isMe()) {
+                    that.room.participants.add(participant);
+                }
+            }
+
+            if (!participant.isMe()) {
+                return;
             }
 
             participant.set({
-                clothing_top: data.person.clothing.top,
-                clothing_bottom: data.person.clothing.bottom,
-                clothing_shoes: data.person.clothing.shoes
+                clothing: {
+                    top: data.person.clothing.top,
+                    bottom: data.person.clothing.bottom,
+                    shoes: data.person.clothing.shoes
+                }
             })
 
-            console.log('me?: ', participant.isMe());
-
-            console.log(that.room.participants);
+            console.log('person_joined', participant.toJSON(), that.room.participants.length);
         });
     }
 });

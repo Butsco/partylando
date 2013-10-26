@@ -1,0 +1,13 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+#participants {
+    height: 100%;
+}
+
+.participant {
+    border: 1px solid gray;
+    height: 100%;
+}

@@ -3,9 +3,13 @@ var ParticipantView = Backbone.View.extend({
 
     initialize: function() {
         _.bindAll(this, 'render');
-        $("#participants").append(this.$el);
-
         this.template = _.template($('#participant-template').html())
+
+        this.topCarousel = new CarouselView({
+            model: participant
+        }, {
+            part: 'top'
+        }).render();
     },
 
     render: function() {
@@ -15,5 +19,23 @@ var ParticipantView = Backbone.View.extend({
 
         this.$el.html(html);
         return this;
+    }
+});
+
+
+var CarouselView = Backbone.View.extend({
+    initialize: function(options) {
+        _.bindAll(this, 'render');
+
+        this.name = options.name;
+        this.model.on('change:clothing', this.onChangeClothing, this);
+    },
+
+    onChangeClothing: function() {
+
+    },
+
+    render: function() {
+
     }
 });

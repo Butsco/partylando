@@ -15,6 +15,7 @@
         <script src="js/vendor/jquery-1.10.2.min.js"></script>
         <script src="js/vendor/underscore-1.5.2.js"></script>
         <script src="js/vendor/backbone-1.1.0.js"></script>
+        <script src="js/vendor/hammer-1.0.5.js"></script>
         <script src="/socket.io/socket.io.js"></script>
         
         <script type="text/template" src="templates/participant.html" id="participant-template"></script>
@@ -23,6 +24,14 @@
         <script src="js/app.js"></script>
     </head>
     <body>
-        <div id="participants" class="row"></div>
+        <div id="participants" class="row">
+            <div class="col-xs-1"></div>
+            <div class="participant col-xs-2" id="participant-4"></div>
+            <div class="participant col-xs-2" id="participant-2"></div>
+            <div class="participant col-xs-2 me" id="participant-0"></div>
+            <div class="participant col-xs-2" id="participant-1"></div>
+            <div class="participant col-xs-2" id="participant-3"></div>
+            <div class="col-xs-1"></div>
+        </div>
     </body>
 </html>
