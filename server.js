@@ -26,7 +26,7 @@ var change_clothes = function(data){
 io.on('connection',function(socket){
   socket.on("subscribe",function(data){
   	var participant = {
-  		id : data.id
+  		id: data.id,
   		clothing : {
   			top : {},
   			bottom : {},
@@ -40,10 +40,12 @@ io.on('connection',function(socket){
   		}
   	}
   	rooms[data.room].participants[data.id] = participant;
-  })
+  });
+
   socket.on("clothing_change",function(data){
   	change_clothes(data);
-  }
+  });
+  
 });
 
 app.get("/api/room",function(req,res){
