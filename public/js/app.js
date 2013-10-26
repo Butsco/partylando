@@ -26,13 +26,32 @@ var ParticpantCollection = Backbone.Collection.extend({
 
 var Participant = Backbone.Model.extend({
     defaults: {
-        clothing_top: undefined,
-        clothing_bottom: undefined,
-        clothing_shoes: undefined
+        clothing_top: 0,
+        clothing_bottom: 0,
+        clothing_shoes: 0
+    },
+
+    initialize: function() {
+        _.bindAll(this, 'isMe', 'onChange');
+        this.on('change', this.onChange, this);
     },
 
     isMe: function() {
         return this.id === app.subscription.id
+    },
+
+    onChange: function() {
+        if (this.isMe()) {
+            app.socket.emit('clothing_change', {
+                room: app.subscription.room,
+                id: this.id,
+                clothing: {
+                    top: this.get('clothing_top'),
+                    bottom: this.get('clothing_bottom'),
+                    shoes: this.get('clothing_shoes')
+                }
+            });
+        }
     }
 });
 
@@ -50,10 +69,10 @@ var App = Backbone.Model.extend({
             name: this.subscription.room
         });
 
-        var socket = io.connect(document.location);
-        socket.on('connect', function () {
+        this.socket = io.connect(document.location);
+        this.socket.on('connect', function () {
             console.log("subscribe", that.subscription);
-            socket.emit('subscribe', that.subscription);
+            that.socket.emit('subscribe', that.subscription);
 
             that.me = new Participant({
                 id: that.subscription.id,
@@ -70,7 +89,7 @@ var App = Backbone.Model.extend({
             }).render();
         });
 
-        socket.on('room_content', function (data) {
+        this.socket.on('room_content', function (data) {
             console.log("room_content", data);
             for (i in data.participants) {
                 var participant = data.participants[i];
@@ -78,7 +97,7 @@ var App = Backbone.Model.extend({
             }
         });
 
-        socket.on('person_joined', this.person_joined, this);
+        this.socket.on('person_joined', this.person_joined, this);
     },
 
     person_joined: function(data) {

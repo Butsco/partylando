@@ -2,6 +2,12 @@ var MeView = Backbone.View.extend({
     initialize: function() {
         _.bindAll(this, 'render');
         this.template = _.template($('#me-template').html())
+
+        this.topCarousel = new CarouselView({
+            model: this.model
+        }, {
+            part: 'top'
+        }).render();
     },
 
     render: function() {
@@ -18,12 +24,6 @@ var ParticipantView = Backbone.View.extend({
     initialize: function() {
         _.bindAll(this, 'render');
         this.template = _.template($('#participant-template').html())
-
-        this.topCarousel = new CarouselView({
-            model: participant
-        }, {
-            part: 'top'
-        }).render();
     },
 
     render: function() {
@@ -32,24 +32,36 @@ var ParticipantView = Backbone.View.extend({
         });
 
         this.$el.html(html);
+
+        window.m = this.model;
+
+        this.topCarousel = new CarouselView({
+            model: this.model,
+            el: this.$el.find('.carousel-top')
+        }, {
+            part: 'top'
+        }).render();
+
         return this;
     }
 });
 
 
 var CarouselView = Backbone.View.extend({
-    initialize: function(options) {
-        _.bindAll(this, 'render');
+    
+    initialize: function(model, options) {
+        _.bindAll(this, 'render', 'onChangeClothing');
 
-        this.name = options.name;
-        this.model.on('change:clothing', this.onChangeClothing, this);
+        this.part = options.part;
+        this.model.on('change:clothing_'+this.part, this.onChangeClothing, this);
     },
 
     onChangeClothing: function() {
-
+        console.log('change: ', this.model.toJSON());
+        offset = this.$el.width() * this.model.get('clothing_'+this.part)
+        this.$el.find('.train').css('-webkit-transform','translate3d(-'+offset+'px,0px,0px)')
     },
 
     render: function() {
-
     }
 });

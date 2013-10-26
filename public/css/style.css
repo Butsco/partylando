@@ -11,3 +11,23 @@ html, body {
     border: 1px solid gray;
     height: 100%;
 }
+
+
+.carousel {
+    width: 100%;
+    border: 1px solid red;
+}
+
+.carousel .train {
+    -webkit-transform: translate3d(0,0,0);
+    -webkit-transition: -webkit-transform 0.6s;
+    white-space: nowrap;
+}
+
+.carousel .train .carriage {
+    display: inline-block;
+}
+
+.carousel .train .carriage img.photo{
+    width: 100%;
+}
