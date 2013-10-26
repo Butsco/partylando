@@ -8,14 +8,13 @@ html, body {
 }
 
 .participant {
-    border: 1px solid gray;
     height: 100%;
 }
 
 
 .carousel {
     width: 100%;
-    border: 1px solid red;
+    overflow: hidden;
 }
 
 .carousel .train {
