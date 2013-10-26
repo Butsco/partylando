@@ -28,6 +28,7 @@
   "dependencies" : {
     "socket.io" : "*",
     "express" : "*",
-    "async"  : "*"
+    "async"  : "*",
+    "restler": "*"
   }
 }
