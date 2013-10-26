@@ -1,0 +1,256 @@
+[
+    {
+        "id": "52491c638abfc78d8e733e0f",
+        "name": "Watergate Nacht",
+        "categories": [
+            {
+                "id": "4e0a4b91bd41eda0d6092f89",
+                "name": "Concert",
+                "pluralName": "Concerts",
+                "shortName": "Concert",
+                "icon": {
+                    "prefix": "https://ss1.4sqi.net/img/categories_v2/arts_entertainment/musicvenue_",
+                    "suffix": ".png"
+                },
+                "primary": true
+            }
+        ],
+        "hereNow": {
+            "count": 0,
+            "groups": [
+                {
+                    "type": "friends",
+                    "name": "Friends here",
+                    "count": 0,
+                    "items": []
+                },
+                {
+                    "type": "others",
+                    "name": "Other people here",
+                    "count": 0,
+                    "items": []
+                }
+            ]
+        },
+        "allDay": true,
+        "date": 1382756400,
+        "timeZone": "Europe/Berlin",
+        "stats": {
+            "checkinsCount": 5,
+            "usersCount": 5
+        },
+        "url": "http://www.songkick.com/concerts/18214299-watergate-nacht-at-watergate?utm_source=4436&utm_medium=partner"
+    },
+    {
+        "id": "52491c638abfc78d8e733e13",
+        "name": "Klubnacht",
+        "categories": [
+            {
+                "id": "4e0a4b91bd41eda0d6092f89",
+                "name": "Concert",
+                "pluralName": "Concerts",
+                "shortName": "Concert",
+                "icon": {
+                    "prefix": "https://ss1.4sqi.net/img/categories_v2/arts_entertainment/musicvenue_",
+                    "suffix": ".png"
+                },
+                "primary": true
+            }
+        ],
+        "hereNow": {
+            "count": 1,
+            "groups": [
+                {
+                    "type": "friends",
+                    "name": "Friends here",
+                    "count": 0,
+                    "items": []
+                },
+                {
+                    "type": "others",
+                    "name": "Other people here",
+                    "count": 1,
+                    "items": []
+                }
+            ]
+        },
+        "allDay": true,
+        "date": 1382756400,
+        "timeZone": "Europe/Berlin",
+        "stats": {
+            "checkinsCount": 2,
+            "usersCount": 2
+        },
+        "url": "http://www.songkick.com/concerts/18214309-klubnacht-at-berghainpanorama-bar?utm_source=4436&utm_medium=partner"
+    },
+    {
+        "id": "51e0b5f279c9bc5ae659ea3f",
+        "name": "Porcelain Raft",
+        "categories": [
+            {
+                "id": "4e0a4b91bd41eda0d6092f89",
+                "name": "Concert",
+                "pluralName": "Concerts",
+                "shortName": "Concert",
+                "icon": {
+                    "prefix": "https://ss1.4sqi.net/img/categories_v2/arts_entertainment/musicvenue_",
+                    "suffix": ".png"
+                },
+                "primary": true
+            }
+        ],
+        "hereNow": {
+            "count": 0,
+            "groups": [
+                {
+                    "type": "friends",
+                    "name": "Friends here",
+                    "count": 0,
+                    "items": []
+                },
+                {
+                    "type": "others",
+                    "name": "Other people here",
+                    "count": 0,
+                    "items": []
+                }
+            ]
+        },
+        "allDay": true,
+        "date": 1382842800,
+        "timeZone": "Europe/Berlin",
+        "stats": {
+            "checkinsCount": 0,
+            "usersCount": 0
+        },
+        "url": "http://www.songkick.com/concerts/17352869-porcelain-raft-at-berghain-kantine?utm_source=4436&utm_medium=partner"
+    },
+    {
+        "id": "521ffde9abdfb27550b34c7b",
+        "name": "Arcane Roots and Barb Wire Dolls",
+        "categories": [
+            {
+                "id": "4e0a4b91bd41eda0d6092f89",
+                "name": "Concert",
+                "pluralName": "Concerts",
+                "shortName": "Concert",
+                "icon": {
+                    "prefix": "https://ss1.4sqi.net/img/categories_v2/arts_entertainment/musicvenue_",
+                    "suffix": ".png"
+                },
+                "primary": true
+            }
+        ],
+        "hereNow": {
+            "count": 0,
+            "groups": [
+                {
+                    "type": "friends",
+                    "name": "Friends here",
+                    "count": 0,
+                    "items": []
+                },
+                {
+                    "type": "others",
+                    "name": "Other people here",
+                    "count": 0,
+                    "items": []
+                }
+            ]
+        },
+        "startAt": 1382824740,
+        "endAt": 1382846340,
+        "allDay": false,
+        "timeZone": "Europe/Berlin",
+        "stats": {
+            "checkinsCount": 1,
+            "usersCount": 1
+        },
+        "url": "http://www.songkick.com/concerts/17841574-arcane-roots-at-white-trash-fast-food?utm_source=4436&utm_medium=partner"
+    },
+    {
+        "id": "524b7ec611d2a5023ae9a398",
+        "name": "Frantic Sunday and Sunday Ballroom",
+        "categories": [
+            {
+                "id": "4e0a4b91bd41eda0d6092f89",
+                "name": "Concert",
+                "pluralName": "Concerts",
+                "shortName": "Concert",
+                "icon": {
+                    "prefix": "https://ss1.4sqi.net/img/categories_v2/arts_entertainment/musicvenue_",
+                    "suffix": ".png"
+                },
+                "primary": true
+            }
+        ],
+        "hereNow": {
+            "count": 0,
+            "groups": [
+                {
+                    "type": "friends",
+                    "name": "Friends here",
+                    "count": 0,
+                    "items": []
+                },
+                {
+                    "type": "others",
+                    "name": "Other people here",
+                    "count": 0,
+                    "items": []
+                }
+            ]
+        },
+        "allDay": true,
+        "date": 1382842800,
+        "timeZone": "Europe/Berlin",
+        "stats": {
+            "checkinsCount": 0,
+            "usersCount": 0
+        },
+        "url": "http://www.songkick.com/concerts/18218669-frantic-sunday-at-white-trash-fast-food?utm_source=4436&utm_medium=partner"
+    },
+    {
+        "id": "5223f1fa345604a0db146de5",
+        "name": "Bob Dylan",
+        "categories": [
+            {
+                "id": "4e0a4b91bd41eda0d6092f89",
+                "name": "Concert",
+                "pluralName": "Concerts",
+                "shortName": "Concert",
+                "icon": {
+                    "prefix": "https://ss1.4sqi.net/img/categories_v2/arts_entertainment/musicvenue_",
+                    "suffix": ".png"
+                },
+                "primary": true
+            }
+        ],
+        "hereNow": {
+            "count": 3,
+            "groups": [
+                {
+                    "type": "friends",
+                    "name": "Friends here",
+                    "count": 0,
+                    "items": []
+                },
+                {
+                    "type": "others",
+                    "name": "Other people here",
+                    "count": 3,
+                    "items": []
+                }
+            ]
+        },
+        "startAt": 1382810400,
+        "endAt": 1382832000,
+        "allDay": false,
+        "timeZone": "Europe/Berlin",
+        "stats": {
+            "checkinsCount": 5,
+            "usersCount": 5
+        },
+        "url": "http://www.songkick.com/concerts/17909889-bob-dylan-at-tempodrom?utm_source=4436&utm_medium=partner"
+    }
+]
