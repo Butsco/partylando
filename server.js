@@ -38,7 +38,7 @@ io.on('connection',function(socket){
   	};
   	if(!rooms[data.room]){
   		rooms[data.room] = {
-  			participants : [],
+  			participants : {},
   			party : {}
   		}
   	}
