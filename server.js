@@ -53,7 +53,7 @@ io.on('connection',function(socket){
   socket.on("clothing_change",function(data){
   	change_clothes(data);
   });
-  
+
 });
 
 app.get("/api/room",function(req,res){
