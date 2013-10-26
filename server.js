@@ -40,6 +40,7 @@ io.on('connection',function(socket){
   		}
   	}
   	rooms[data.room].participants[data.id] = participant;
+    socket.join(data.room);
   });
 
   socket.on("clothing_change",function(data){
@@ -58,4 +59,4 @@ app.post("/api/clothing/change",function(req,res){
 });
 
 console.log("express server and websockets on port 3000");
-app.listen(3000);
+server.listen(3000);
