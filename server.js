@@ -23,6 +23,10 @@ var change_clothes = function(data){
   	rooms[data.room].participants[data.id].clothing = clothing;
   	io.sockets.in(data.room).emit("peer_clothing_changed", data);
 }
+var like_clothes = function(data){
+    rooms[data.room].participants[data.id].likedBy.push(data.current);
+    io.sockets.in(data.room).emit("person_liked", data);
+}
 var person_joined  = function(data){
     io.sockets.in(data.room).emit("person_joined", data);
 }
@@ -34,7 +38,8 @@ io.on('connection',function(socket){
   			top : {},
   			bottom : {},
   			shoes : {}
-  		}
+  		},
+        likedBy : []
   	};
   	if(!rooms[data.room]){
   		rooms[data.room] = {
@@ -56,9 +61,15 @@ io.on('connection',function(socket){
 
 });
 
-app.get("/api/room",function(req,res){
-	var room = req.body.room;
+app.get("/api/rooms",function(req,res){
+    res.json(rooms);
+});
+app.get("/api/rooms/:room",function(req,res){
+	var room = req.params.room;
 	res.json(rooms[room]);
+});
+app.post("/api/clothing/like",function(req,res){
+    like_clothes(req.body)
 })
 app.post("/api/clothing/change",function(req,res){
 	var data = req.body;
