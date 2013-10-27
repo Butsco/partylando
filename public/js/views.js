@@ -45,15 +45,19 @@ var MeView = Backbone.View.extend({
 
 var ParticipantView = Backbone.View.extend({
     initialize: function() {
-        _.bindAll(this, 'render');
+        _.bindAll(this, 'render', 'onLike','onUnlike');
+        var that = this;
         this.template = _.template($('#participant-template').html())
+
+        
+        this.model.on('change:likes', this.onChangeLikes, this);
     },
 
     render: function() {
         var html = this.template({
             id: this.model.id
         });
-
+        var that = this;
         this.$el.html(html);
 
         window.m = this.model;
@@ -73,7 +77,71 @@ var ParticipantView = Backbone.View.extend({
             el: this.$el.find('.carousel-shoes')
         }, {part: 'shoes'}).render();
 
+        this.$el.find('.up').on("click",function(event) {
+            that.onLike();
+        });
+        this.$el.find('.down').on("click",function(event) {
+            that.onUnlike();
+        });
+        this.onChangeLikes();
         return this;
+    },
+    onLike : function(){
+
+        values = {};
+        values.likes = _.values(_.clone(this.model.get("likes")));
+        values.likes.push({
+            clothing_top: this.model.get("clothing_top"),
+            clothing_bottom: this.model.get("clothing_bottom"),
+            clothing_shoes: this.model.get("clothing_shoes"),
+            clothing_top_cat: this.model.get("clothing_top_cat"),
+            clothing_bottom_cat: this.model.get("clothing_bottom_cat"),
+            clothing_shoes_cat: this.model.get("clothing_shoes_cat"),
+            liker : app.subscription.id,
+            type: "like"
+        }) 
+        console.log(values.likes);
+        this.model.set(values);
+    },
+    onUnlike : function(){
+        values = {};
+        values.likes = _.values(_.clone(this.model.get("likes")));
+        values.likes.push({
+            clothing_top: this.model.get("clothing_top"),
+            clothing_bottom: this.model.get("clothing_bottom"),
+            clothing_shoes: this.model.get("clothing_shoes"),
+            clothing_top_cat: this.model.get("clothing_top_cat"),
+            clothing_bottom_cat: this.model.get("clothing_bottom_cat"),
+            clothing_shoes_cat: this.model.get("clothing_shoes_cat"),
+            liker : app.subscription.id,
+            type: "dislike"
+        }) 
+        this.model.set(values);
+    },
+    onChangeLikes : function(){
+        var likes = this.model.get("likes");
+        var $buttons = this.$el.find(".like_buttons");
+        $buttons.removeClass("dislike");
+        $buttons.removeClass("like");
+        for(var i in likes){
+            var like = likes[i];
+            if(like.liker == app.subscription.id){
+                if(like.clothing_top == this.model.get("clothing_top")&&
+                    like.clothing_bottom == this.model.get("clothing_bottom")&&
+                    like.clothing_shoes == this.model.get("clothing_shoes")&&
+                    like.clothing_top_cat == this.model.get("clothing_top_cat")&&
+                    like.clothing_bottom_cat == this.model.get("clothing_bottom_cat")&&
+                    like.clothing_shoes_cat == this.model.get("clothing_shoes_cat")){
+                    if(like.type == "like"){
+                       
+                        $buttons.addClass("like");
+                    }else{
+                       
+                        $buttons.addClass("dislike");
+                    }
+                }
+            }
+        }
     }
 });
 
@@ -148,6 +216,8 @@ var MeCarouselView = Backbone.View.extend({
         this.$el.find('.arrow-down').on('click', function() {
             that.onSwipeDown();
         });
+
+        
     },
 
     onSwipeRight: function() {
