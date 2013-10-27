@@ -15,6 +15,8 @@ var MeView = Backbone.View.extend({
     initialize: function() {
         _.bindAll(this, 'render');
         this.template = _.template($('#me-template').html())
+
+        this.model.on('change:likes', this.onChangeLikes, this);
     },
 
     render: function() {
@@ -40,6 +42,30 @@ var MeView = Backbone.View.extend({
         }, { part: 'shoes' }).render();
         
         return this;
+    },
+    onChangeLikes : function(){
+        var likes = this.model.get("likes");
+        var lCount = 0;
+        var dCount = 0;
+        for(var i in likes){
+            var like = likes[i];
+                if(like.clothing_top == this.model.get("clothing_top")&&
+                    like.clothing_bottom == this.model.get("clothing_bottom")&&
+                    like.clothing_shoes == this.model.get("clothing_shoes")&&
+                    like.clothing_top_cat == this.model.get("clothing_top_cat")&&
+                    like.clothing_bottom_cat == this.model.get("clothing_bottom_cat")&&
+                    like.clothing_shoes_cat == this.model.get("clothing_shoes_cat")){
+                    if(like.type == "like"){
+                       lCount  = lCount +1;
+                    }else{
+                       dCount = dCount + 1;
+                    }
+                }
+            
+        }
+        console.log(lCount);
+        $("#count-up").html(lCount);
+        $("#count-down").html(dCount);
     }
 });
 
@@ -133,7 +159,6 @@ var ParticipantView = Backbone.View.extend({
                     like.clothing_bottom_cat == this.model.get("clothing_bottom_cat")&&
                     like.clothing_shoes_cat == this.model.get("clothing_shoes_cat")){
                     if(like.type == "like"){
-                       
                         $buttons.addClass("like");
                     }else{
                        
