@@ -104,7 +104,7 @@ var CarouselView = Backbone.View.extend({
 var MeCarouselView = Backbone.View.extend({
     
     initialize: function(model, options) {
-        _.bindAll(this, 'render', 'onChangeClothing', 'onSwipeLeft', 'onSwipeRight');
+        _.bindAll(this, 'render', 'onChangeClothing', 'onSwipeLeft', 'onSwipeRight', 'onSwipeUp', 'onSwipeDown', 'recalcPrice');
         var that = this;
 
         this.part = options.part;
@@ -113,26 +113,21 @@ var MeCarouselView = Backbone.View.extend({
 
         $('body').hammer().on("swipeleft", ".carousel-"+this.part+" .train", function(event) {
             that.onSwipeLeft();
-            that.recalcPrice();
         });
 
         $('body').hammer().on("swiperight", ".carousel-"+this.part+" .train", function(event) {
             that.onSwipeRight();
-            that.recalcPrice();
         });
 
         $('body').hammer().on("swipeup", ".carousel-"+this.part+" .train", function(event) {
             that.onSwipeUp();
-            that.recalcPrice();
         });
 
         $('body').hammer().on("swipedown", ".carousel-"+this.part+" .train", function(event) {
             that.onSwipeDown();
-            that.recalcPrice();
         });
         $('body').hammer().on("tap", ".carousel-"+this.part+" .train", function(event) {
             that.onSwipeLeft();
-            that.recalcPrice();
         });
 
 
@@ -176,15 +171,21 @@ var MeCarouselView = Backbone.View.extend({
         values['clothing_'+this.part+'_cat'] = Math.max(0, this.model.get('clothing_'+this.part+'_cat') - 1);
         this.model.set(values)
     },
+
     recalcPrice : function(){
         var values = this.model.attributes;
         var data = window.data;
+
+        debugger
 
         var topProduct = _.values(data["top"])[values.clothing_top_cat][values.clothing_top];
         var bottomProduct = _.values(data["bottom"])[values.clothing_bottom_cat][values.clothing_bottom];
         var shoesProduct = _.values(data["shoes"])[values.clothing_shoes_cat][values.clothing_shoes];
         
-        $("#price").html("€" + (topProduct.price + bottomProduct.price+ shoesProduct.price));
+        var total = (topProduct.price + bottomProduct.price+ shoesProduct.price);
+        console.log("total:", total);
+
+        $("#price").html("€" + total);
 
     },
     onChangeClothing: function() {
@@ -192,6 +193,8 @@ var MeCarouselView = Backbone.View.extend({
         offset_x = 150 * this.model.get('clothing_'+this.part);
         offset_y = 144 * this.model.get('clothing_'+this.part+'_cat');
         this.$el.find('.train').css('-webkit-transform','translate3d(-'+offset_x+'px,-'+offset_y+'px,0px)');
+
+        this.recalcPrice();
     },
 
     render: function() {

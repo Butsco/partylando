@@ -41,7 +41,7 @@ for(var i in full){
     if(c<3){
        var count = 0;
         for(var x in full[i][o]){
-          if(count<5){
+          if(count<10){
             full[i][o][x] = {
               "imageUrl" : full[i][o][x].imageUrl,
               "name" : full[i][o][x].name,
