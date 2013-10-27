@@ -183,7 +183,14 @@ $(function(){
     $("input, textarea, .dontscroll").on('touchmove', function(event){
         event.preventDefault()
     });
-    
+
+    if(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+        window.touchAvailable = true;
+        $('body').addClass('touch');
+    } else {
+        window.touchAvailable = false;
+        $('body').addClass('no-touch');
+    }
 
     window.app = new App();
 });
