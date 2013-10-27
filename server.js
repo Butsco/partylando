@@ -145,12 +145,9 @@ app.get("/api/zalando",function(req,res){
   res.json(full);
 })
 
-app.get("/api/events", function(req,res){
-  res.json(data_foursquare);
-});
-app.get("/api/zalando", function(req, res){
-  res.json(data_zalando);
-});
+app.get("/api/zalando/:type",function(req,res){
+  res.json(full[req.params.type]);
+})
 
 console.log("express server and websockets on port 3000");
 server.listen(3000);
