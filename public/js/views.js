@@ -132,6 +132,23 @@ var MeCarouselView = Backbone.View.extend({
         $('body').hammer().on("swipedown", ".carousel-"+this.part+" .train", function(event) {
             that.onSwipeDown();
         });
+
+
+        this.$el.find('.arrow-left').on('click', function() {
+            that.onSwipeLeft();
+        });
+
+        this.$el.find('.arrow-right').on('click', function() {
+            that.onSwipeRight();
+        });
+
+        this.$el.find('.arrow-up').on('click', function() {
+            that.onSwipeUp();
+        });
+
+        this.$el.find('.arrow-down').on('click', function() {
+            that.onSwipeDown();
+        });
     },
 
     onSwipeRight: function() {
