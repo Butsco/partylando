@@ -46,19 +46,22 @@ var Participant = Backbone.Model.extend({
 
     onChange: function() {
         console.log("On change clothes");
-        app.socket.emit('clothing_change', {
-            room: app.subscription.room,
-            id: this.id,
-            clothing: {
-                top: this.get('clothing_top'),
-                bottom: this.get('clothing_bottom'),
-                shoes: this.get('clothing_shoes'),
-                top_cat: this.get('clothing_top_cat'),
-                bottom_cat: this.get('clothing_bottom_cat'),
-                shoes_cat: this.get('clothing_shoes_cat')
-            },
-            likes : this.get('likes')
-        });
+        var that = this;
+        _.debounce(function() {
+            app.socket.emit('clothing_change', {
+                room: app.subscription.room,
+                id: that.id,
+                clothing: {
+                    top: that.get('clothing_top'),
+                    bottom: that.get('clothing_bottom'),
+                    shoes: that.get('clothing_shoes'),
+                    top_cat: that.get('clothing_top_cat'),
+                    bottom_cat: that.get('clothing_bottom_cat'),
+                    shoes_cat: that.get('clothing_shoes_cat')
+                },
+                likes : that.get('likes')
+            });
+        }, 200)();
     }
 });
 
@@ -135,23 +138,26 @@ var App = Backbone.Model.extend({
     },
 
     peer_clothing_changed: function(data) {
-        participant = this.room.participants.get(data.id);
+        var that = this;
+        _.debounce(function(data) {
+            participant = that.room.participants.get(data.id);
 
-        if (participant) {
-            participant.set({
-                'clothing_top': data.clothing.top,
-                'clothing_bottom': data.clothing.bottom,
-                'clothing_shoes': data.clothing.shoes,
-                'clothing_top_cat': data.clothing.top_cat,
-                'clothing_bottom_cat': data.clothing.bottom_cat,
-                'clothing_shoes_cat': data.clothing.shoes_cat,
-                'likes' : data.likes
-            });
-        }else{
-            app.me.set({
-                "likes" : data.likes
-            })
-        }
+            if (participant) {
+                participant.set({
+                    'clothing_top': data.clothing.top,
+                    'clothing_bottom': data.clothing.bottom,
+                    'clothing_shoes': data.clothing.shoes,
+                    'clothing_top_cat': data.clothing.top_cat,
+                    'clothing_bottom_cat': data.clothing.bottom_cat,
+                    'clothing_shoes_cat': data.clothing.shoes_cat,
+                    'likes' : data.likes
+                });
+            }else{
+                app.me.set({
+                    "likes" : data.likes
+                })
+            }
+        },200)(data);
     }
 });
 
