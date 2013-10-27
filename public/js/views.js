@@ -16,7 +16,8 @@ var MeView = Backbone.View.extend({
         _.bindAll(this, 'render');
         this.template = _.template($('#me-template').html())
 
-        this.model.on('change:likes', this.onChangeLikes, this);
+        //this.model.on('change:likes', this.onChangeLikes, this);
+        this.model.on('change', this.onChangeLikes, this);
     },
 
     render: function() {
@@ -61,9 +62,7 @@ var MeView = Backbone.View.extend({
                        dCount = dCount + 1;
                     }
                 }
-            
         }
-        console.log(lCount);
         $("#count-up").html(lCount);
         $("#count-down").html(dCount);
     }
