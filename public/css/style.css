@@ -4,9 +4,10 @@ html, body {
     max-height : 100%;
     max-width  : 100%;
     overflow : hidden;
-    background: #FFF url('../img/background.png');
-    background-repeat : repeat-x;
-    background-size : contain;
+    background-color: #e3e3e3;
+    background-image: url('../img/background.png');
+    background-repeat: repeat-x;
+    background-position: left top;
     font-family : "champagne__limousinesregular";
 }
 
@@ -18,7 +19,6 @@ html, body {
     height: 100%;
     width: 190px !important;
 }
-
 
 .carousel {
     width: 100%;
@@ -58,6 +58,7 @@ html, body {
     padding-top : 2px;
     padding-bottom : 2px;
     color : #FFF;
+    font-size: 15px;
 }
 
 
@@ -126,6 +127,52 @@ html, body {
     cursor: pointer;
 }
 
+.participant .like_buttons {
+    height : 35px;
+    width : 100%;
+    background-color: black;
+    position: relative;
+}
+
+.participant .like_buttons.dislike .down {
+    opacity: 1.0;
+}
+
+.participant .like_buttons.like .up {
+    opacity: 1.0;
+}
+
+.participant .like_buttons .up {
+    width: 44px;
+    height: 44px;
+    background-image: url(../img/rating_up.png);
+    position: absolute;
+    top: -5px;
+    right: 40px;
+    opacity: 0.5;
+    cursor: pointer;
+    -webkit-transition: opacity 0.6s;
+}
+
+.participant .like_buttons .down {
+    width: 44px;
+    height: 44px;
+    background-image: url(../img/rating_down.png);
+    position: absolute;
+    top: -5px;
+    left: 40px;
+    opacity: 0.5;
+    cursor: pointer;
+    -webkit-transition: opacity 0.6s;
+}
+
+.participant .shadow {
+    width: 100%;
+    height: 45px;
+    background-image: url(../img/shadow.png);
+    background-position: center top;
+}
+
 
 
 #action_bar{
@@ -138,6 +185,7 @@ html, body {
     color : white;
     font-size : 20px;
 }
+
 #logo{
     background-image : url("../img/logo_for_dark_background.png");
     background-size : contain ;
@@ -146,12 +194,8 @@ html, body {
     width : 100pt;
     float : right;
 }
-.like_buttons{
-    height :133px;
-    width : 100%;
-    background-repeat  : no-repeat;
-    background-size : 100% 100%;
-}
+
+
 .dislike{
      background-image : url("../img/ratingbar_down.png");
 }
