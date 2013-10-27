@@ -12,7 +12,7 @@
         for (var z in cat) {
         %>
         <div class="carriage">
-            <img class="photo" src="<%= cat[z].imageUrl %>" />
+            <img onmousedown="event.preventDefault ? event.preventDefault() : event.returnValue = false" class="photo" src="<%= cat[z].imageUrl %>" />
             <div class="price">
                 €<%= cat[z].price %>
             </div>
