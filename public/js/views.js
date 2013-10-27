@@ -74,8 +74,8 @@ var CarouselView = Backbone.View.extend({
         this.model.on('change:clothing_'+this.part, this.onChangeClothing, this);
         this.model.on('change:clothing_'+this.part+'_cat', this.onChangeClothing, this);
 
-        this.$el.find('img.photo').css('width', this.$el.width()+"px");
-        this.$el.css('height', this.$el.width()/0.6925+"px");
+        this.$el.find('img.photo').css('width', (this.$el.width()-80)+"px");
+        this.$el.css('height', (this.$el.width()-80)/0.6925+"px");
     },
 
     onChangeClothing: function() {
@@ -129,7 +129,7 @@ var MeCarouselView = Backbone.View.extend({
 
     onSwipeLeft: function() {
         values = {}
-        values['clothing_'+this.part] = Math.min(2, this.model.get('clothing_'+this.part) + 1);
+        values['clothing_'+this.part] = Math.min(14, this.model.get('clothing_'+this.part) + 1);
         this.model.set(values)
     },
 

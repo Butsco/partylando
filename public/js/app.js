@@ -161,7 +161,16 @@ $(function(){
             }
         });
     });
-
+    $.ajax({
+            url: "/api/zalando",
+            method: 'GET',
+            async: false,
+            contentType: 'text',
+            success: function (data) {
+                console.log(data);
+                window.data = data;
+            }
+        });
     $('#test').hammer({
         drag: false,
         transform: false,

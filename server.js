@@ -1,11 +1,72 @@
 var express = require("express");
 var http = require("http");
+var _ = require("underscore");
 
 var app = express();
 app.use(express.static('public'));
 var server = http.createServer(app)
 
 var io = require('socket.io').listen(server);
+
+var zalando = require("./apis/zalando_cached.json"); 
+
+/**Reform**/
+
+var top = zalando["filter-top"];
+var bottom = zalando["filter-bottom"];
+var shoes = zalando["filter-shoes"];
+
+var topFull = {};
+var bottomFull  = {};
+var shoesFull = {};
+var full = {};
+for(var i in top){
+  topFull[top[i].urlKey] = zalando[top[i].urlKey];
+}
+for(var i in bottom){
+  bottomFull[bottom[i].urlKey] = zalando[bottom[i].urlKey];
+}
+for(var i in shoes){
+  shoesFull[shoes[i].urlKey] = zalando[shoes[i].urlKey];
+}
+
+full.top = topFull;
+full.bottom = bottomFull;
+full.shoes = shoesFull;
+
+for(var i in full){
+  var c = 0;
+  for(var o in full[i]){
+    if(c<3){
+       var count = 0;
+        for(var x in full[i][o]){
+          if(count<5){
+            full[i][o][x] = {
+              "imageUrl" : full[i][o][x].imageUrl,
+              "name" : full[i][o][x].name,
+              "sku" : full[i][o][x].sku,
+              "price" : full[i][o][x].price
+            }
+            count  = count + 1;
+          }else{
+            delete full[i][o][x];
+          }
+          
+          
+        }
+        full[i][o] = _.reject(full[i][o],function(f){
+          if(f){
+            return false;
+          }else{
+            return true;
+          }
+        })
+        c = c +1;
+    }else{
+      delete full[i][o];
+    }
+  }
+}
  /**
 	participant : {
 		id : naam
@@ -79,6 +140,9 @@ app.post("/api/clothing/change",function(req,res){
 	var data = req.body;
 	change_clothes(data);
 });
+app.get("/api/zalando",function(req,res){
+  res.json(full);
+})
 
 console.log("express server and websockets on port 3000");
 server.listen(3000);
