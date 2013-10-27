@@ -1,3 +1,16 @@
+var LikeButtonsView = Backbone.View.extend({
+    initialize: function() {
+        _.bindAll(this, 'render');
+        this.template = _.template($('#me-template').html())
+    },
+
+    render: function() {
+        var html = this.template({
+            id: this.model.id
+        });
+    }
+});
+
 var MeView = Backbone.View.extend({
     initialize: function() {
         _.bindAll(this, 'render');

@@ -42,6 +42,7 @@ html, body {
      -webkit-transform: translate3d(0,0,0);
 
     width: 100%;
+    -webkit-user-drag: none;
 }
 .carousel .train .carriage .price{
     position : absolute;
