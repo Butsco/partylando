@@ -1,0 +1,638 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5D84A3B79FE242B5B3AC7D61 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F76283ACDD934272A5C5AAB1 /* libPods.a */; };
+		620B1F39181C982B00020884 /* RestConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 620B1F38181C982B00020884 /* RestConnection.m */; };
+		620B1F3C181C9F9400020884 /* PartyRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 620B1F3B181C9F9400020884 /* PartyRoom.m */; };
+		620B1F3E181CB3B200020884 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 620B1F3D181CB3B200020884 /* FacebookSDK.framework */; };
+		620B1F41181CB3CB00020884 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 620B1F40181CB3CB00020884 /* loginViewController.m */; };
+		621FC51E181BEE2B00C1E371 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621FC51D181BEE2B00C1E371 /* Foundation.framework */; };
+		621FC520181BEE2B00C1E371 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621FC51F181BEE2B00C1E371 /* CoreGraphics.framework */; };
+		621FC522181BEE2B00C1E371 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621FC521181BEE2B00C1E371 /* UIKit.framework */; };
+		621FC528181BEE2B00C1E371 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 621FC526181BEE2B00C1E371 /* InfoPlist.strings */; };
+		621FC52A181BEE2B00C1E371 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 621FC529181BEE2B00C1E371 /* main.m */; };
+		621FC52E181BEE2B00C1E371 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 621FC52D181BEE2B00C1E371 /* AppDelegate.m */; };
+		621FC531181BEE2B00C1E371 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 621FC52F181BEE2B00C1E371 /* Main_iPhone.storyboard */; };
+		621FC539181BEE2B00C1E371 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 621FC538181BEE2B00C1E371 /* Images.xcassets */; };
+		621FC540181BEE2B00C1E371 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621FC53F181BEE2B00C1E371 /* XCTest.framework */; };
+		621FC541181BEE2B00C1E371 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621FC51D181BEE2B00C1E371 /* Foundation.framework */; };
+		621FC542181BEE2B00C1E371 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621FC521181BEE2B00C1E371 /* UIKit.framework */; };
+		621FC54A181BEE2B00C1E371 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 621FC548181BEE2B00C1E371 /* InfoPlist.strings */; };
+		621FC54C181BEE2B00C1E371 /* PartylandoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 621FC54B181BEE2B00C1E371 /* PartylandoTests.m */; };
+		621FC55B181BF51F00C1E371 /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 621FC55A181BF51F00C1E371 /* UserProfile.m */; };
+		621FC55E181BF70800C1E371 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 621FC55D181BF70800C1E371 /* Item.m */; };
+		621FC565181BF85E00C1E371 /* PartyPeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 621FC564181BF85E00C1E371 /* PartyPeopleViewController.m */; };
+		621FC56E181BFC5800C1E371 /* PartyData.m in Sources */ = {isa = PBXBuildFile; fileRef = 621FC56D181BFC5800C1E371 /* PartyData.m */; };
+		623E3209181CEDFA00BB6245 /* loc.png in Resources */ = {isa = PBXBuildFile; fileRef = 623E3207181CEDFA00BB6245 /* loc.png */; };
+		623E320A181CEDFA00BB6245 /* tip.png in Resources */ = {isa = PBXBuildFile; fileRef = 623E3208181CEDFA00BB6245 /* tip.png */; };
+		62AC4FD5181C10E4009E9353 /* noImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 62AC4FD4181C10E4009E9353 /* noImage.png */; };
+		62AC4FD8181C2024009E9353 /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AC4FD7181C2024009E9353 /* ItemsViewController.m */; };
+		62AC4FDC181C2185009E9353 /* HorizontalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AC4FDB181C2185009E9353 /* HorizontalTableViewCell.m */; };
+		62AC4FDF181C21CA009E9353 /* ItemsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AC4FDE181C21CA009E9353 /* ItemsCell.m */; };
+		62AC4FE2181C516A009E9353 /* PartyItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AC4FE1181C516A009E9353 /* PartyItemsViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		621FC543181BEE2B00C1E371 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 621FC512181BEE2B00C1E371 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 621FC519181BEE2B00C1E371;
+			remoteInfo = Partylando;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		620B1F37181C982B00020884 /* RestConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestConnection.h; sourceTree = "<group>"; };
+		620B1F38181C982B00020884 /* RestConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestConnection.m; sourceTree = "<group>"; };
+		620B1F3A181C9F9400020884 /* PartyRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PartyRoom.h; path = Model/PartyRoom.h; sourceTree = "<group>"; };
+		620B1F3B181C9F9400020884 /* PartyRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PartyRoom.m; path = Model/PartyRoom.m; sourceTree = "<group>"; };
+		620B1F3D181CB3B200020884 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		620B1F3F181CB3CB00020884 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = loginViewController.h; path = Controllers/loginViewController.h; sourceTree = "<group>"; };
+		620B1F40181CB3CB00020884 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = loginViewController.m; path = Controllers/loginViewController.m; sourceTree = "<group>"; };
+		621FC51A181BEE2B00C1E371 /* Partylando.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Partylando.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		621FC51D181BEE2B00C1E371 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		621FC51F181BEE2B00C1E371 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		621FC521181BEE2B00C1E371 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		621FC525181BEE2B00C1E371 /* Partylando-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Partylando-Info.plist"; sourceTree = "<group>"; };
+		621FC527181BEE2B00C1E371 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		621FC529181BEE2B00C1E371 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		621FC52B181BEE2B00C1E371 /* Partylando-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Partylando-Prefix.pch"; sourceTree = "<group>"; };
+		621FC52C181BEE2B00C1E371 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		621FC52D181BEE2B00C1E371 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		621FC530181BEE2B00C1E371 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		621FC538181BEE2B00C1E371 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		621FC53E181BEE2B00C1E371 /* PartylandoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PartylandoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		621FC53F181BEE2B00C1E371 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		621FC547181BEE2B00C1E371 /* PartylandoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PartylandoTests-Info.plist"; sourceTree = "<group>"; };
+		621FC549181BEE2B00C1E371 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		621FC54B181BEE2B00C1E371 /* PartylandoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PartylandoTests.m; sourceTree = "<group>"; };
+		621FC559181BF51F00C1E371 /* UserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserProfile.h; path = Model/UserProfile.h; sourceTree = "<group>"; };
+		621FC55A181BF51F00C1E371 /* UserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserProfile.m; path = Model/UserProfile.m; sourceTree = "<group>"; };
+		621FC55C181BF70800C1E371 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = Model/Item.h; sourceTree = "<group>"; };
+		621FC55D181BF70800C1E371 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = Model/Item.m; sourceTree = "<group>"; };
+		621FC563181BF85E00C1E371 /* PartyPeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PartyPeopleViewController.h; path = Controllers/PartyPeopleViewController.h; sourceTree = "<group>"; };
+		621FC564181BF85E00C1E371 /* PartyPeopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PartyPeopleViewController.m; path = Controllers/PartyPeopleViewController.m; sourceTree = "<group>"; };
+		621FC56C181BFC5800C1E371 /* PartyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PartyData.h; path = Model/PartyData.h; sourceTree = "<group>"; };
+		621FC56D181BFC5800C1E371 /* PartyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PartyData.m; path = Model/PartyData.m; sourceTree = "<group>"; };
+		623E3207181CEDFA00BB6245 /* loc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loc.png; path = Model/loc.png; sourceTree = "<group>"; };
+		623E3208181CEDFA00BB6245 /* tip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tip.png; path = Model/tip.png; sourceTree = "<group>"; };
+		62AC4FD4181C10E4009E9353 /* noImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noImage.png; path = Resources/noImage.png; sourceTree = "<group>"; };
+		62AC4FD6181C2024009E9353 /* ItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemsViewController.h; path = Controllers/ItemsViewController.h; sourceTree = "<group>"; };
+		62AC4FD7181C2024009E9353 /* ItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemsViewController.m; path = Controllers/ItemsViewController.m; sourceTree = "<group>"; };
+		62AC4FDA181C2185009E9353 /* HorizontalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HorizontalTableViewCell.h; path = Model/HorizontalTableViewCell.h; sourceTree = "<group>"; };
+		62AC4FDB181C2185009E9353 /* HorizontalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HorizontalTableViewCell.m; path = Model/HorizontalTableViewCell.m; sourceTree = "<group>"; };
+		62AC4FDD181C21CA009E9353 /* ItemsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsCell.h; sourceTree = "<group>"; };
+		62AC4FDE181C21CA009E9353 /* ItemsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsCell.m; sourceTree = "<group>"; };
+		62AC4FE0181C516A009E9353 /* PartyItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PartyItemsViewController.h; path = Controllers/PartyItemsViewController.h; sourceTree = "<group>"; };
+		62AC4FE1181C516A009E9353 /* PartyItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PartyItemsViewController.m; path = Controllers/PartyItemsViewController.m; sourceTree = "<group>"; };
+		6949328C9DE545689E5DB2BC /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		F76283ACDD934272A5C5AAB1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		621FC517181BEE2B00C1E371 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				621FC520181BEE2B00C1E371 /* CoreGraphics.framework in Frameworks */,
+				620B1F3E181CB3B200020884 /* FacebookSDK.framework in Frameworks */,
+				621FC522181BEE2B00C1E371 /* UIKit.framework in Frameworks */,
+				621FC51E181BEE2B00C1E371 /* Foundation.framework in Frameworks */,
+				5D84A3B79FE242B5B3AC7D61 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		621FC53B181BEE2B00C1E371 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				621FC540181BEE2B00C1E371 /* XCTest.framework in Frameworks */,
+				621FC542181BEE2B00C1E371 /* UIKit.framework in Frameworks */,
+				621FC541181BEE2B00C1E371 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		621FC511181BEE2B00C1E371 = {
+			isa = PBXGroup;
+			children = (
+				621FC523181BEE2B00C1E371 /* Partylando */,
+				621FC545181BEE2B00C1E371 /* PartylandoTests */,
+				621FC51C181BEE2B00C1E371 /* Frameworks */,
+				621FC51B181BEE2B00C1E371 /* Products */,
+				6949328C9DE545689E5DB2BC /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		621FC51B181BEE2B00C1E371 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				621FC51A181BEE2B00C1E371 /* Partylando.app */,
+				621FC53E181BEE2B00C1E371 /* PartylandoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		621FC51C181BEE2B00C1E371 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				620B1F3D181CB3B200020884 /* FacebookSDK.framework */,
+				621FC51D181BEE2B00C1E371 /* Foundation.framework */,
+				621FC51F181BEE2B00C1E371 /* CoreGraphics.framework */,
+				621FC521181BEE2B00C1E371 /* UIKit.framework */,
+				621FC53F181BEE2B00C1E371 /* XCTest.framework */,
+				F76283ACDD934272A5C5AAB1 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		621FC523181BEE2B00C1E371 /* Partylando */ = {
+			isa = PBXGroup;
+			children = (
+				62AC4FD3181C10C7009E9353 /* Resources */,
+				621FC55F181BF80300C1E371 /* Controllers */,
+				621FC555181BF4F100C1E371 /* Model */,
+				621FC52F181BEE2B00C1E371 /* Main_iPhone.storyboard */,
+				621FC52C181BEE2B00C1E371 /* AppDelegate.h */,
+				621FC52D181BEE2B00C1E371 /* AppDelegate.m */,
+				621FC538181BEE2B00C1E371 /* Images.xcassets */,
+				621FC524181BEE2B00C1E371 /* Supporting Files */,
+			);
+			path = Partylando;
+			sourceTree = "<group>";
+		};
+		621FC524181BEE2B00C1E371 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				621FC525181BEE2B00C1E371 /* Partylando-Info.plist */,
+				621FC526181BEE2B00C1E371 /* InfoPlist.strings */,
+				621FC529181BEE2B00C1E371 /* main.m */,
+				621FC52B181BEE2B00C1E371 /* Partylando-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		621FC545181BEE2B00C1E371 /* PartylandoTests */ = {
+			isa = PBXGroup;
+			children = (
+				621FC54B181BEE2B00C1E371 /* PartylandoTests.m */,
+				621FC546181BEE2B00C1E371 /* Supporting Files */,
+			);
+			path = PartylandoTests;
+			sourceTree = "<group>";
+		};
+		621FC546181BEE2B00C1E371 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				621FC547181BEE2B00C1E371 /* PartylandoTests-Info.plist */,
+				621FC548181BEE2B00C1E371 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		621FC555181BF4F100C1E371 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				62AC4FD9181C215D009E9353 /* HorizontalTableview */,
+				621FC559181BF51F00C1E371 /* UserProfile.h */,
+				621FC55A181BF51F00C1E371 /* UserProfile.m */,
+				621FC55C181BF70800C1E371 /* Item.h */,
+				621FC55D181BF70800C1E371 /* Item.m */,
+				621FC56C181BFC5800C1E371 /* PartyData.h */,
+				621FC56D181BFC5800C1E371 /* PartyData.m */,
+				620B1F37181C982B00020884 /* RestConnection.h */,
+				620B1F38181C982B00020884 /* RestConnection.m */,
+				620B1F3A181C9F9400020884 /* PartyRoom.h */,
+				620B1F3B181C9F9400020884 /* PartyRoom.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		621FC55F181BF80300C1E371 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				621FC563181BF85E00C1E371 /* PartyPeopleViewController.h */,
+				621FC564181BF85E00C1E371 /* PartyPeopleViewController.m */,
+				62AC4FD6181C2024009E9353 /* ItemsViewController.h */,
+				62AC4FD7181C2024009E9353 /* ItemsViewController.m */,
+				62AC4FE0181C516A009E9353 /* PartyItemsViewController.h */,
+				62AC4FE1181C516A009E9353 /* PartyItemsViewController.m */,
+				620B1F3F181CB3CB00020884 /* loginViewController.h */,
+				620B1F40181CB3CB00020884 /* loginViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		62AC4FD3181C10C7009E9353 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				62AC4FD4181C10E4009E9353 /* noImage.png */,
+				623E3207181CEDFA00BB6245 /* loc.png */,
+				623E3208181CEDFA00BB6245 /* tip.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		62AC4FD9181C215D009E9353 /* HorizontalTableview */ = {
+			isa = PBXGroup;
+			children = (
+				62AC4FDA181C2185009E9353 /* HorizontalTableViewCell.h */,
+				62AC4FDB181C2185009E9353 /* HorizontalTableViewCell.m */,
+				62AC4FDD181C21CA009E9353 /* ItemsCell.h */,
+				62AC4FDE181C21CA009E9353 /* ItemsCell.m */,
+			);
+			name = HorizontalTableview;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		621FC519181BEE2B00C1E371 /* Partylando */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 621FC54F181BEE2B00C1E371 /* Build configuration list for PBXNativeTarget "Partylando" */;
+			buildPhases = (
+				81B3BBF466D9402FB560C5D2 /* Check Pods Manifest.lock */,
+				621FC516181BEE2B00C1E371 /* Sources */,
+				621FC517181BEE2B00C1E371 /* Frameworks */,
+				621FC518181BEE2B00C1E371 /* Resources */,
+				C7C49EF60168402D80CC7B5D /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Partylando;
+			productName = Partylando;
+			productReference = 621FC51A181BEE2B00C1E371 /* Partylando.app */;
+			productType = "com.apple.product-type.application";
+		};
+		621FC53D181BEE2B00C1E371 /* PartylandoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 621FC552181BEE2B00C1E371 /* Build configuration list for PBXNativeTarget "PartylandoTests" */;
+			buildPhases = (
+				621FC53A181BEE2B00C1E371 /* Sources */,
+				621FC53B181BEE2B00C1E371 /* Frameworks */,
+				621FC53C181BEE2B00C1E371 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				621FC544181BEE2B00C1E371 /* PBXTargetDependency */,
+			);
+			name = PartylandoTests;
+			productName = PartylandoTests;
+			productReference = 621FC53E181BEE2B00C1E371 /* PartylandoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		621FC512181BEE2B00C1E371 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = Youbba;
+				TargetAttributes = {
+					621FC53D181BEE2B00C1E371 = {
+						TestTargetID = 621FC519181BEE2B00C1E371;
+					};
+				};
+			};
+			buildConfigurationList = 621FC515181BEE2B00C1E371 /* Build configuration list for PBXProject "Partylando" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 621FC511181BEE2B00C1E371;
+			productRefGroup = 621FC51B181BEE2B00C1E371 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				621FC519181BEE2B00C1E371 /* Partylando */,
+				621FC53D181BEE2B00C1E371 /* PartylandoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		621FC518181BEE2B00C1E371 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				621FC539181BEE2B00C1E371 /* Images.xcassets in Resources */,
+				621FC531181BEE2B00C1E371 /* Main_iPhone.storyboard in Resources */,
+				62AC4FD5181C10E4009E9353 /* noImage.png in Resources */,
+				623E320A181CEDFA00BB6245 /* tip.png in Resources */,
+				623E3209181CEDFA00BB6245 /* loc.png in Resources */,
+				621FC528181BEE2B00C1E371 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		621FC53C181BEE2B00C1E371 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				621FC54A181BEE2B00C1E371 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		81B3BBF466D9402FB560C5D2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C7C49EF60168402D80CC7B5D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		621FC516181BEE2B00C1E371 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62AC4FE2181C516A009E9353 /* PartyItemsViewController.m in Sources */,
+				621FC56E181BFC5800C1E371 /* PartyData.m in Sources */,
+				620B1F3C181C9F9400020884 /* PartyRoom.m in Sources */,
+				621FC565181BF85E00C1E371 /* PartyPeopleViewController.m in Sources */,
+				621FC55E181BF70800C1E371 /* Item.m in Sources */,
+				62AC4FDC181C2185009E9353 /* HorizontalTableViewCell.m in Sources */,
+				621FC52E181BEE2B00C1E371 /* AppDelegate.m in Sources */,
+				621FC52A181BEE2B00C1E371 /* main.m in Sources */,
+				62AC4FD8181C2024009E9353 /* ItemsViewController.m in Sources */,
+				620B1F41181CB3CB00020884 /* loginViewController.m in Sources */,
+				620B1F39181C982B00020884 /* RestConnection.m in Sources */,
+				62AC4FDF181C21CA009E9353 /* ItemsCell.m in Sources */,
+				621FC55B181BF51F00C1E371 /* UserProfile.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		621FC53A181BEE2B00C1E371 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				621FC54C181BEE2B00C1E371 /* PartylandoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		621FC544181BEE2B00C1E371 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 621FC519181BEE2B00C1E371 /* Partylando */;
+			targetProxy = 621FC543181BEE2B00C1E371 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		621FC526181BEE2B00C1E371 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				621FC527181BEE2B00C1E371 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		621FC52F181BEE2B00C1E371 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				621FC530181BEE2B00C1E371 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		621FC548181BEE2B00C1E371 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				621FC549181BEE2B00C1E371 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		621FC54D181BEE2B00C1E371 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		621FC54E181BEE2B00C1E371 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		621FC550181BEE2B00C1E371 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6949328C9DE545689E5DB2BC /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/roberto/Documents/iOS/Partylando,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Partylando/Partylando-Prefix.pch";
+				INFOPLIST_FILE = "Partylando/Partylando-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		621FC551181BEE2B00C1E371 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6949328C9DE545689E5DB2BC /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/roberto/Documents/iOS/Partylando,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Partylando/Partylando-Prefix.pch";
+				INFOPLIST_FILE = "Partylando/Partylando-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		621FC553181BEE2B00C1E371 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Partylando.app/Partylando";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Partylando/Partylando-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PartylandoTests/PartylandoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		621FC554181BEE2B00C1E371 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Partylando.app/Partylando";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Partylando/Partylando-Prefix.pch";
+				INFOPLIST_FILE = "PartylandoTests/PartylandoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		621FC515181BEE2B00C1E371 /* Build configuration list for PBXProject "Partylando" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				621FC54D181BEE2B00C1E371 /* Debug */,
+				621FC54E181BEE2B00C1E371 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		621FC54F181BEE2B00C1E371 /* Build configuration list for PBXNativeTarget "Partylando" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				621FC550181BEE2B00C1E371 /* Debug */,
+				621FC551181BEE2B00C1E371 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		621FC552181BEE2B00C1E371 /* Build configuration list for PBXNativeTarget "PartylandoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				621FC553181BEE2B00C1E371 /* Debug */,
+				621FC554181BEE2B00C1E371 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 621FC512181BEE2B00C1E371 /* Project object */;
+}
