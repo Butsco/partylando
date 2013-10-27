@@ -111,6 +111,8 @@ var MeCarouselView = Backbone.View.extend({
         this.model.on('change:clothing_'+this.part, this.onChangeClothing, this);
         this.model.on('change:clothing_'+this.part+'_cat', this.onChangeClothing, this);
 
+        this.recalcPrice();
+
         $('body').hammer().on("swipeleft", ".carousel-"+this.part+" .train", function(event) {
             that.onSwipeLeft();
         });
@@ -175,8 +177,6 @@ var MeCarouselView = Backbone.View.extend({
     recalcPrice : function(){
         var values = this.model.attributes;
         var data = window.data;
-
-        debugger
 
         var topProduct = _.values(data["top"])[values.clothing_top_cat][values.clothing_top];
         var bottomProduct = _.values(data["bottom"])[values.clothing_bottom_cat][values.clothing_bottom];

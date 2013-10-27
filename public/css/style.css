@@ -13,6 +13,7 @@ html, body {
 
 #participants {
     height: 100%;
+    margin: 0 auto;
 }
 
 .participant {
@@ -230,28 +231,27 @@ html, body {
     padding: 12px 21px;
 }
 
-.count{
-    float:right;
-    margin-right : 30px;
-    line-height:30pt;
+.rating .count{
+    
 }
 
-.thumb-up{
-    background-image : url("../img/thumbs_up.png");
-    width : 50%;
-    height : 30pt;
-    margin-top : 20pt;
-    background-size : auto 100%;
-    background-repeat : no-repeat;
-    float:left;
-
+.rating .legend {
+    display: inline-block;
+    line-height: 0.95em;
+    margin-top: 20px;
+    font-size: 0.9em;
 }
-.thumb-down{
-     background-image : url("../img/thumbs_down.png");
-     width : 50%;
-    height : 30pt;
-    margin-top : 20pt;
-    background-size : auto 100%;
-    background-repeat : no-repeat;
-    float:left;
+
+.rating .thumbs-up{
+    display: inline-block;
+    margin: 0 10px;
+    position: relative;
+    top: -10px;
+}
+
+.rating .thumbs-down{
+    display: inline-block;
+    margin: 0 10px;
+    position: relative;
+    top: -10px;
 }
