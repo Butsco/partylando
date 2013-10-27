@@ -2,6 +2,7 @@ var express = require("express");
 var http = require("http");
 var _ = require("underscore");
 
+
 var app = express();
 app.use(express.static('public'));
 var server = http.createServer(app)
@@ -135,7 +136,7 @@ app.get("/api/rooms/:room",function(req,res){
 });
 app.post("/api/clothing/like",function(req,res){
     like_clothes(req.body)
-})
+});
 app.post("/api/clothing/change",function(req,res){
 	var data = req.body;
 	change_clothes(data);
@@ -144,5 +145,14 @@ app.get("/api/zalando",function(req,res){
   res.json(full);
 })
 
+app.get("/api/events", function(req,res){
+  res.json(data_foursquare);
+});
+app.get("/api/zalando", function(req, res){
+  res.json(data_zalando);
+});
+
 console.log("express server and websockets on port 3000");
 server.listen(3000);
+
+
