@@ -147,6 +147,10 @@ var App = Backbone.Model.extend({
                 'clothing_shoes_cat': data.clothing.shoes_cat,
                 'likes' : data.likes
             });
+        }else{
+            app.me.set({
+                "likes" : data.likes
+            })
         }
     }
 });
