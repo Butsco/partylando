@@ -83,6 +83,8 @@ var rooms = {
 var change_clothes = function(data){
 	var clothing = data.clothing;
   	rooms[data.room].participants[data.id].clothing = clothing;
+    rooms[data.room].participants[data.id].likes = data.likes;
+    console.log("Content",data);
   	io.sockets.in(data.room).emit("peer_clothing_changed", data);
 }
 var like_clothes = function(data){
@@ -104,7 +106,7 @@ io.on('connection',function(socket){
         bottom_cat: {},
         shoes_cat: {}
   		},
-        likedBy : {}
+        likes : {}
   	};
   	if(!rooms[data.room]){
   		rooms[data.room] = {

@@ -31,7 +31,8 @@ var Participant = Backbone.Model.extend({
         clothing_shoes: 0,
         clothing_top_cat: 0,
         clothing_bottom_cat: 0,
-        clothing_shoes_cat: 0
+        clothing_shoes_cat: 0,
+        likes :[]
     },
 
     initialize: function() {
@@ -44,6 +45,7 @@ var Participant = Backbone.Model.extend({
     },
 
     onChange: function() {
+        console.log("On change clothes");
         app.socket.emit('clothing_change', {
             room: app.subscription.room,
             id: this.id,
@@ -54,7 +56,8 @@ var Participant = Backbone.Model.extend({
                 top_cat: this.get('clothing_top_cat'),
                 bottom_cat: this.get('clothing_bottom_cat'),
                 shoes_cat: this.get('clothing_shoes_cat')
-            }
+            },
+            likes : this.get('likes')
         });
     }
 });
@@ -108,7 +111,6 @@ var App = Backbone.Model.extend({
     person_joined: function(data) {
         var id = data.id;
         participant = this.room.participants.get(id);
-
         if (!participant) {
             participant = new Participant({id: id});
             if (!participant.isMe()) {
@@ -116,16 +118,17 @@ var App = Backbone.Model.extend({
             }
         }
 
-        if (!participant.isMe()) {
+        if (participant.isMe()) {
             return;
         }
-
+        console.log("Data",data);
         participant.set({
             clothing: {
                 top: data.clothing.top,
                 bottom: data.clothing.bottom,
                 shoes: data.clothing.shoes
-            }
+            },
+            likes : data.likes
         })
 
         console.log('person_joined', participant.toJSON(), this.room.participants.length);
@@ -141,7 +144,8 @@ var App = Backbone.Model.extend({
                 'clothing_shoes': data.clothing.shoes,
                 'clothing_top_cat': data.clothing.top_cat,
                 'clothing_bottom_cat': data.clothing.bottom_cat,
-                'clothing_shoes_cat': data.clothing.shoes_cat
+                'clothing_shoes_cat': data.clothing.shoes_cat,
+                'likes' : data.likes
             });
         }
     }
