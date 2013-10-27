@@ -116,7 +116,7 @@ var App = Backbone.Model.extend({
             }
         }
 
-        if (!participant.isMe()) {
+        if (participant.isMe()) {
             return;
         }
 
