@@ -29,6 +29,7 @@ html, body {
 
 .carousel .train .carriage img.photo{
     width: 100%;
+    -webkit-user-drag: none;
 }
 
 #test {
