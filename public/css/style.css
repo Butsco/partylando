@@ -22,6 +22,7 @@ html, body {
     width: 100%;
     overflow: hidden;
     background-color : #FFF;
+    position : relative;
 }
 
 .carousel .train {
@@ -34,6 +35,7 @@ html, body {
     display: inline-block;
     margin-left : 20%;
     margin-right : 25%;
+    position : relative;
 }
 
 .carousel .train .carriage img.photo{
@@ -41,6 +43,17 @@ html, body {
 
     width: 100%;
     -webkit-user-drag: none;
+}
+.carousel .train .carriage .price{
+    position : absolute;
+    right : 0;
+    bottom : 0;
+    background-color : #000;
+    padding-left : 10px;
+    padding-right:10px;
+    padding-top : 2px;
+    padding-bottom : 2px;
+    color : #FFF;
 }
 
 
@@ -53,6 +66,7 @@ html, body {
     height : 70pt;
     background-color : black;
     color : white;
+    font-size : 20px;
 }
 #logo{
     background-image : url("../img/logo_for_dark_background.png");
@@ -64,13 +78,62 @@ html, body {
 }
 .like_buttons{
     height :133px;
-    width : 200px;
+    width : 100%;
     background-repeat  : no-repeat;
-    background-size : contain;
+    background-size : 100% 100%;
 }
 .dislike{
      background-image : url("../img/ratingbar_down.png");
 }
 .participant{
     padding : 20px;
+    margin-top : 10px;
+}
+.carousel.me{
+    margin-top : 20px;
+    margin-bottom : 20px;
+
+}
+.me{
+    margin-top : -30px;
+}
+.name{
+    position  : absolute;
+    bottom : 220px;
+    left:30px;
+    z-index:80;
+}
+.place_order{
+    border : none;
+    background-color : #d57e2d;
+    color : #FFF;
+    height : 40pt;
+    margin-top : 15pt;
+}
+.justify-center{
+    text-align : center;
+}
+.count{
+    float:right;
+    margin-right : 30px;
+    line-height:30pt;
+}
+.thumb-up{
+    background-image : url("../img/thumbs_up.png");
+    width : 50%;
+    height : 30pt;
+    margin-top : 20pt;
+    background-size : auto 100%;
+    background-repeat : no-repeat;
+    float:left;
+
+}
+.thumb-down{
+     background-image : url("../img/thumbs_down.png");
+     width : 50%;
+    height : 30pt;
+    margin-top : 20pt;
+    background-size : auto 100%;
+    background-repeat : no-repeat;
+    float:left;
 }

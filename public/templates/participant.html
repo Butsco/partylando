@@ -1,21 +1,30 @@
 
 <% 
+    var data = window.data;
     var places = ['top','bottom','shoes'];
-    for (var i=0; i<places.length; i++) {
-        var place = places[i];
+    for (var i in data) {
+        var place = i;
 %>
-<div class="carousel carousel-<%= place %>">
-    <% for (var cat=0; cat<3; cat++) {%>
+<div class="carousel  carousel-<%= place %>">
+    <% for (var o in data[i]) {%>
     <div class="train">
-        <% for (var choice=0; choice<3; choice++) {%>
+        <% 
+        var cat  = data[i][o];
+        for (var z in cat) {
+        %>
         <div class="carriage">
-            <img class="photo" src="http://i1.ztat.net/detail/1P/I1/2A/00/G1/02/1PI12A00G-102@1.1.jpg" />
+            <img class="photo" src="<%= cat[z].imageUrl %>" />
+            
         </div>
         <% } %>
     </div>
     <% } %>
 </div>
 <% } %>
+
+<div class="name">
+    <%= id %>
+</div>
 
 <div class="like_buttons dislike">
 
