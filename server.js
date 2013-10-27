@@ -146,7 +146,7 @@ app.get("/api/zalando",function(req,res){
 })
 
 app.get("/api/zalando/:type",function(req,res){
-  res.json(full[req.params.type]);
+  res.json(_.values(full[req.params.type]));
 })
 
 console.log("express server and websockets on port 3000");
