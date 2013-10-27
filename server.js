@@ -104,7 +104,7 @@ io.on('connection',function(socket){
         bottom_cat: {},
         shoes_cat: {}
   		},
-        likedBy : []
+        likedBy : {}
   	};
   	if(!rooms[data.room]){
   		rooms[data.room] = {
@@ -130,6 +130,13 @@ io.on('connection',function(socket){
 app.get("/api/rooms",function(req,res){
     res.json(rooms);
 });
+app.get("/ios/api/rooms",function(req,res){
+  var back = rooms.butsco.participants;
+  back = _.values(back);
+  var temp = _.clone(rooms);
+  temp.butsco.participants = back;
+  res.json(temp);
+})
 app.get("/api/rooms/:room",function(req,res){
 	var room = req.params.room;
 	res.json(rooms[room]);
