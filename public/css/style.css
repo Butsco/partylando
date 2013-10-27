@@ -16,11 +16,13 @@ html, body {
 
 .participant {
     height: 100%;
+    width: 190px !important;
 }
 
 
 .carousel {
     width: 100%;
+    height: 144px;
     overflow: hidden;
     background-color : #FFF;
     position : relative;
@@ -30,19 +32,20 @@ html, body {
     -webkit-transform: translate3d(0,0,0);
     -webkit-transition: -webkit-transform 0.6s;
     white-space: nowrap;
+    width: calc(150px * 10);
 }
 
 .carousel .train .carriage {
-    display: inline-block;
-    margin-left : 20%;
-    margin-right : 25%;
+    display: block;
     position : relative;
+    float: left;
+    -webkit-transform: translate3d(0,0,0);
 }
 
 .carousel .train .carriage img.photo{
-     -webkit-transform: translate3d(0,0,0);
-
-    width: 100%;
+    margin: 0 25px;
+    width: 100px;
+    height: 144px;
     -webkit-user-drag: none;
 }
 .carousel .train .carriage .price{

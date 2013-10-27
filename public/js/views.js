@@ -86,15 +86,12 @@ var CarouselView = Backbone.View.extend({
         this.part = options.part;
         this.model.on('change:clothing_'+this.part, this.onChangeClothing, this);
         this.model.on('change:clothing_'+this.part+'_cat', this.onChangeClothing, this);
-        console.log(this.$el.width());
-        this.$el.find('img.photo').css('width', (this.$el.width()-80)+"px");
-        this.$el.css('height', (this.$el.width()-80)/0.6925+"px");
     },
 
     onChangeClothing: function() {
         console.log('change: ', this.model.toJSON());
-        offset_x = this.$el.width() * this.model.get('clothing_'+this.part);
-        offset_y = this.$el.find('.train').height() * this.model.get('clothing_'+this.part+'_cat');
+        offset_x = 150 * this.model.get('clothing_'+this.part);
+        offset_y = 144 * this.model.get('clothing_'+this.part+'_cat');
         this.$el.find('.train').css('-webkit-transform','translate3d(-'+offset_x+'px,-'+offset_y+'px,0px)');
     },
 
@@ -113,9 +110,6 @@ var MeCarouselView = Backbone.View.extend({
         this.part = options.part;
         this.model.on('change:clothing_'+this.part, this.onChangeClothing, this);
         this.model.on('change:clothing_'+this.part+'_cat', this.onChangeClothing, this);
-
-        this.$el.find('img.photo').css('width', (this.$el.width()-80)+"px");
-        this.$el.css('height', (this.$el.width()-80)/0.6925+"px");
 
         $('body').hammer().on("swipeleft", ".carousel-"+this.part+" .train", function(event) {
             that.onSwipeLeft();
@@ -143,11 +137,11 @@ var MeCarouselView = Backbone.View.extend({
 
 
         this.$el.find('.arrow-left').on('click', function() {
-            that.onSwipeLeft();
+            that.onSwipeRight();
         });
 
         this.$el.find('.arrow-right').on('click', function() {
-            that.onSwipeRight();
+            that.onSwipeLeft();
         });
 
         this.$el.find('.arrow-up').on('click', function() {
@@ -167,7 +161,7 @@ var MeCarouselView = Backbone.View.extend({
 
     onSwipeLeft: function() {
         values = {}
-        values['clothing_'+this.part] = Math.min(14, this.model.get('clothing_'+this.part) + 1);
+        values['clothing_'+this.part] = Math.min(9, this.model.get('clothing_'+this.part) + 1);
         this.model.set(values)
     },
 
@@ -195,8 +189,8 @@ var MeCarouselView = Backbone.View.extend({
     },
     onChangeClothing: function() {
         console.log('change: ', this.model.toJSON());
-        offset_x = (this.$el.width() * this.model.get('clothing_'+this.part));
-        offset_y = this.$el.find('.train').height() * this.model.get('clothing_'+this.part+'_cat');
+        offset_x = 150 * this.model.get('clothing_'+this.part);
+        offset_y = 144 * this.model.get('clothing_'+this.part+'_cat');
         this.$el.find('.train').css('-webkit-transform','translate3d(-'+offset_x+'px,-'+offset_y+'px,0px)');
     },
 
