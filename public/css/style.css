@@ -22,6 +22,7 @@ html, body {
     width: 100%;
     overflow: hidden;
     background-color : #FFF;
+    position : relative;
 }
 
 .carousel .train {
@@ -63,13 +64,29 @@ html, body {
 }
 .like_buttons{
     height :133px;
-    width : 200px;
+    width : 100%;
     background-repeat  : no-repeat;
-    background-size : contain;
+    background-size : 100% 100%;
 }
 .dislike{
      background-image : url("../img/ratingbar_down.png");
 }
 .participant{
     padding : 20px;
+    margin-top : 10px;
+}
+.carousel.me{
+    margin-top : 20px;
+    margin-bottom : 20px;
+
+}
+.me{
+    margin-top : -30px;
+}
+.name{
+    
+    position  : absolute;
+    bottom : 220px;
+    left:30px;
+    z-index:80;
 }

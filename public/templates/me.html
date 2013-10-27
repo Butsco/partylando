@@ -1,12 +1,10 @@
-<!--<h2>Me <%= id %></h2>
-
 <% 
     var data = window.data;
     var places = ['top','bottom','shoes'];
     for (var i in data) {
         var place = i;
 %>
-<div class="carousel carousel-<%= place %>">
+<div class="carousel me carousel-<%= place %>">
     <% for (var o in data[i]) {%>
     <div class="train">
         <% 
@@ -20,4 +18,4 @@
     </div>
     <% } %>
 </div>
-<% } %>-->
+<% } %>
