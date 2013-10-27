@@ -221,6 +221,7 @@ var MeCarouselView = Backbone.View.extend({
         $('body').hammer().on("swipedown", ".carousel-"+this.part+" .train", function(event) {
             that.onSwipeDown();
         });
+
         $('body').hammer().on("tap", ".carousel-"+this.part+" .train", function(event) {
             that.onSwipeLeft();
         });
@@ -235,11 +236,11 @@ var MeCarouselView = Backbone.View.extend({
         });
 
         this.$el.find('.arrow-up').on('click', function() {
-            that.onSwipeUp();
+            that.onSwipeDown();
         });
 
         this.$el.find('.arrow-down').on('click', function() {
-            that.onSwipeDown();
+            that.onSwipeUp();
         });
 
         

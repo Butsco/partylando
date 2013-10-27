@@ -221,13 +221,13 @@ html, body {
 
 .place_order_wrapper {
     text-align: right;
+    margin-top : 24px;
 }
 
 .place_order{
     border: none;
     background-color : #d57e2d;
     color : #FFF;
-    margin-top : 13px;
     padding: 10px 18px;
 }
 
